@@ -10,11 +10,11 @@
  */
 ---
 
-<footer id="kontakt" class="bg-trust-blue">
+<footer class="bg-trust-blue">
   <div class="mx-auto max-w-6xl px-6 py-[60px] md:px-8">
     <div class="flex flex-col gap-10 md:flex-row md:justify-between">
 
-      <!-- Left Column: Logo & Company - using dark background version -->
+      <!-- Left Column: Logo & Company -->
       <div class="flex flex-col gap-4">
         <img
           src="/Lexit_X_only_dark_bg.png"
@@ -23,23 +23,22 @@
           height="auto"
           class="h-auto w-[180px]"
         />
+        <p class="text-meta !text-white/70">
+          Graz, Steiermark, Österreich
+        </p>
       </div>
 
       <!-- Right Column: Contact & Legal -->
       <div class="flex flex-col gap-6 md:items-end md:text-right">
-        <!-- Contact Info -->
-        <div class="text-meta !text-white/70">
-          <p>
-            <a href="mailto:office@lexit.at" class="!text-white hover:!text-controlled-amber">
-              office@lexit.at
+        <!-- Contact -->
+        <div class="text-meta">
+          <a href="/kontakt" class="!text-white hover:!text-controlled-amber font-semibold">
+            Kontakt aufnehmen →
+          </a>
+          <p class="mt-2 !text-white/70">
+            <a href="#" class="contact-phone !text-white/70 hover:!text-controlled-amber">
+              0660 / 60 88 762
             </a>
-            <span class="mx-2 text-white/30">|</span>
-            <a href="tel:+43XXXXXXXXX" class="!text-white hover:!text-controlled-amber">
-              +43 XXX XXXXXXX
-            </a>
-          </p>
-          <p class="mt-1">
-            Graz, Steiermark, Österreich
           </p>
         </div>
 
@@ -54,3 +53,11 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Phone obfuscation - decoded client-side
+  const p = ['0660', '60', '88', '762'].join('');
+  document.querySelectorAll('.contact-phone').forEach(el => {
+    el.setAttribute('href', 'tel:+43' + p);
+  });
+</script>

@@ -26,23 +26,42 @@ import Footer from '../components/Footer.astro';
     <!-- =================================================================
          1. Opening Statement (Hero)
          Design: Trust Blue background, prominent X logo, white text
+         Two variants that alternate randomly on page load
          ================================================================= -->
     <section class="bg-trust-blue pt-[40px] pb-[60px] md:pt-[60px] md:pb-[80px] text-white">
       <div class="mx-auto max-w-[800px] px-6 text-center md:px-8">
-        <!-- Centered Logo above text - 10% larger, full opacity -->
+        <!-- Centered Logo above text -->
         <img
           src="/Lexit_X_logo_dark_bg.png"
           alt="LexIT Executive Governance"
           class="mx-auto mb-8 w-[220px] md:w-[385px] lg:w-[440px]"
         />
-        <h1 class="text-[36px] md:text-[48px] font-semibold leading-[1.1] tracking-[-0.02em]">
-          IT-Compliance und Produktdesign für IT-Services.
-        </h1>
-        <p class="mt-6 text-[16px] md:text-[18px] leading-[1.6] text-white/80">
-          Praktisch umsetzbar, ohne Bürokratie-Overhead.
-        </p>
+        <!-- Variant A -->
+        <div id="hero-a" class="hero-variant">
+          <h1 class="text-[36px] md:text-[48px] font-semibold leading-[1.1] tracking-[-0.02em]">
+            Regulierung überfordert. Wir nicht.
+          </h1>
+          <p class="mt-6 text-[16px] md:text-[18px] leading-[1.6] text-white/80">
+            NIS2, DORA, AI Act – verständlich erklärt, sauber umgesetzt, in Ihre Strukturen integriert.
+          </p>
+        </div>
+        <!-- Variant B -->
+        <div id="hero-b" class="hero-variant hidden">
+          <h1 class="text-[36px] md:text-[48px] font-semibold leading-[1.1] tracking-[-0.02em]">
+            Compliance als Wettbewerbsvorteil.
+          </h1>
+          <p class="mt-6 text-[16px] md:text-[18px] leading-[1.6] text-white/80">
+            Wir machen aus regulatorischem Druck funktionierende Strukturen – ohne Bürokratie-Ballast.
+          </p>
+        </div>
       </div>
     </section>
+    <script>
+      if (Math.random() > 0.5) {
+        document.getElementById('hero-a')?.classList.add('hidden');
+        document.getElementById('hero-b')?.classList.remove('hidden');
+      }
+    </script>
 
     <!-- =================================================================
          2. Leistungsübersicht
@@ -53,39 +72,48 @@ import Footer from '../components/Footer.astro';
         <div class="grid gap-8 md:grid-cols-3 md:gap-6">
 
           <!-- IT-Compliance Card -->
-          <article class="bg-off-white border-t-4 border-controlled-amber p-8 md:p-10">
-            <h2 class="text-h2-mobile md:text-h2 mb-4">
+          <a href="/leistungen/it-compliance" class="block bg-off-white border-t-4 border-controlled-amber p-8 md:p-10 hover:border-trust-blue transition-colors group">
+            <h2 class="text-h2-mobile md:text-h2 mb-4 group-hover:text-controlled-amber transition-colors">
               IT-Compliance
             </h2>
             <p class="text-body-mobile md:text-body">
-              NIS2, DORA, AI Act, DSGVO &ndash; Anforderungen praktisch umsetzen.
-              Dokumentation für Behörden, Integration in bestehende Strukturen,
-              Mitarbeitersensibilisierung wo nötig.
+              NIS2, DORA, AI Act, DSGVO – nicht als Checkliste, sondern als Struktur,
+              die Ihr Unternehmen stärkt. Wir integrieren Anforderungen in bestehende
+              Abläufe. Keine Schubladen-Dokumentation.
             </p>
-          </article>
+            <span class="inline-block mt-4 text-meta text-trust-blue group-hover:text-controlled-amber transition-colors">
+              Mehr erfahren →
+            </span>
+          </a>
 
           <!-- IT-Governance Card -->
-          <article class="bg-off-white border-t-4 border-controlled-amber p-8 md:p-10">
-            <h2 class="text-h2-mobile md:text-h2 mb-4">
+          <a href="/leistungen/it-governance" class="block bg-off-white border-t-4 border-controlled-amber p-8 md:p-10 hover:border-trust-blue transition-colors group">
+            <h2 class="text-h2-mobile md:text-h2 mb-4 group-hover:text-controlled-amber transition-colors">
               IT-Governance
             </h2>
             <p class="text-body-mobile md:text-body">
-              Strukturierte Steuerung von IT-Systemen und IT-Services.
-              Klare Verantwortlichkeiten, Risikomanagement, messbare Kennzahlen.
-              Kein ITIL-Theater.
+              Klare Verantwortlichkeiten, echtes Risikomanagement, Kennzahlen die
+              jemand liest. Wir bauen Governance-Strukturen, die im Alltag
+              funktionieren – nicht nur im Audit.
             </p>
-          </article>
+            <span class="inline-block mt-4 text-meta text-trust-blue group-hover:text-controlled-amber transition-colors">
+              Mehr erfahren →
+            </span>
+          </a>
 
           <!-- Produktdesign Card -->
-          <article class="bg-off-white border-t-4 border-controlled-amber p-8 md:p-10">
-            <h2 class="text-h2-mobile md:text-h2 mb-4">
+          <a href="/leistungen/produktdesign" class="block bg-off-white border-t-4 border-controlled-amber p-8 md:p-10 hover:border-trust-blue transition-colors group">
+            <h2 class="text-h2-mobile md:text-h2 mb-4 group-hover:text-controlled-amber transition-colors">
               Produktdesign
             </h2>
             <p class="text-body-mobile md:text-body">
-              Neue IT-Services entwickeln &ndash; von der Idee über Servicebeschreibungen
-              bis zu Verträgen. Technische Architektur, SLAs, Pricing-Strukturen.
+              IT-Services, die sich verkaufen lassen. Von der Idee über SLAs
+              bis zum Vertrag – technisch sauber, kaufmännisch durchdacht.
             </p>
-          </article>
+            <span class="inline-block mt-4 text-meta text-trust-blue group-hover:text-controlled-amber transition-colors">
+              Mehr erfahren →
+            </span>
+          </a>
 
         </div>
       </div>
@@ -98,23 +126,117 @@ import Footer from '../components/Footer.astro';
     <section id="ansatz" class="bg-trust-blue text-white">
       <div class="mx-auto max-w-[700px] px-[40px] py-[60px] text-center md:px-[60px] md:py-[80px]">
         <p class="text-[16px] md:text-[18px] leading-[1.6]">
-          Compliance ist kein Selbstzweck. Wir entwickeln Strukturen, die Wert schaffen
-          und gleichzeitig rechtliche Anforderungen erfüllen. Für Geschäftsführer und
-          IT-Verantwortliche in KMU &ndash; Österreich und Deutschland.
+          Regulierung wird nicht verschwinden. Die Frage ist, ob sie Sie lähmt
+          oder voranbringt. 15 Jahre Konzernerfahrung mit ISO-Zertifizierungen,
+          ESG-Frameworks und IT-Governance – wir wissen, was funktioniert.
+          Ohne Folienfriedhöfe, ohne Berater-Sprech.
         </p>
       </div>
     </section>
 
     <!-- =================================================================
-         4. Zielgruppen-Qualifikation
+         4. Über mich
+         Design: Two-column layout with credentials
+         ================================================================= -->
+    <section id="ueber" class="pt-[80px] pb-[100px] md:pt-[100px] md:pb-[140px] bg-white">
+      <div class="mx-auto max-w-5xl px-6 md:px-8">
+        <div class="grid gap-12 md:grid-cols-2 md:gap-16">
+
+          <!-- Left Column: Personal intro -->
+          <div>
+            <h2 class="text-h2-mobile md:text-h2 mb-6">
+              Über mich
+            </h2>
+            <div class="space-y-4 text-body-mobile md:text-body">
+              <p>
+                Mein Name ist Matthias König. Ich bin Jurist, IT-Spezialist und seit über
+                zehn Jahren in der Schnittstelle zwischen Recht, Technologie und Unternehmensführung tätig.
+              </p>
+              <p>
+                Meine Erfahrung stammt nicht aus der Theorie, sondern aus der Praxis: Als Manager
+                Legal & Compliance bei einem internationalen IT-Dienstleister habe ich Teams geführt,
+                ISO-Zertifizierungen begleitet, ESG-Programme aufgebaut und als Interim-CISO
+                die Informationssicherheit verantwortet.
+              </p>
+              <p>
+                Was mich antreibt: Regulierung muss nicht lähmen. Sie kann Struktur geben,
+                Risiken reduzieren und Vertrauen schaffen – wenn man sie richtig anpackt.
+                Genau dabei helfe ich Ihnen.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Credentials -->
+          <div class="space-y-8">
+            <!-- Experience -->
+            <div>
+              <h3 class="text-h3 text-trust-blue mb-4">Erfahrung</h3>
+              <ul class="space-y-2 text-body-mobile md:text-body">
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>10+ Jahre Konzern: Legal, Compliance, IT-Governance, CISO</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>ISO 27001, ISO 9001, ISO 14001 – Implementierung & Audits</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>ESG/CSR-Strategieentwicklung auf Gruppenebene</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>Service Level Management & ITIL-Implementierung</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Credentials -->
+            <div>
+              <h3 class="text-h3 text-trust-blue mb-4">Qualifikationen</h3>
+              <ul class="space-y-2 text-body-mobile md:text-body">
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>Mag. iur. (Rechtswissenschaften) & M.A. IT-Law and Management</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>ITIL v3 Expert & ITIL 4 Managing Professional</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>Certified Compliance Officer (Austrian Standards)</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-controlled-amber mt-1">→</span>
+                  <span>Dozent: Donau-Universität Krems, FH Burgenland</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Recognition -->
+            <div>
+              <h3 class="text-h3 text-trust-blue mb-4">Auszeichnungen</h3>
+              <p class="text-body-mobile md:text-body">
+                <span class="font-semibold">Legal 500 GC Powerlist</span> – Austria 2022 & 2024<br>
+                <span class="text-slate text-meta">Auszeichnung für die einflussreichsten In-House-Juristen Österreichs</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         5. Zielgruppen-Qualifikation
          Design: Meta typography, slate color, centered narrow width
          ================================================================= -->
-    <section id="ueber" class="pt-[80px] pb-[80px] md:pt-[100px] md:pb-[120px]">
+    <section class="pt-[60px] pb-[80px] md:pt-[80px] md:pb-[100px] bg-off-white">
       <div class="mx-auto max-w-[600px] px-6 text-center md:px-8">
-        <p class="text-meta">
-          Dieses Angebot richtet sich an Geschäftsführer, IT-Leiter und
-          Compliance-Verantwortliche in kleinen und mittelständischen
-          Unternehmen (KMU) in Österreich und Deutschland.
+        <p class="text-meta text-slate">
+          Für Geschäftsführer und IT-Verantwortliche in KMU, die Compliance
+          ernst nehmen – aber nicht daran ersticken wollen. Österreich und Deutschland.
         </p>
       </div>
     </section>

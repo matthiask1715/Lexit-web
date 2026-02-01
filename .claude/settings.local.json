@@ -11,7 +11,11 @@
       "Bash(ls:*)",
       "Bash(npm run build:*)",
       "Bash(head:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(git push)"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "supabase"
+  ]
 }
