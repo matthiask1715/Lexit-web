@@ -1,0 +1,124 @@
+---
+/**
+ * index.astro - LexIT Homepage
+ *
+ * Structure follows Board Document pattern:
+ * 1. Opening Statement (Hero) - Clear value proposition
+ * 2. Leistungsübersicht - Three service pillars
+ * 3. Positionierungsaussage - Strategic positioning with X-Intervention
+ * 4. Zielgruppen-Qualifikation - Target audience clarity
+ *
+ * Design Decisions:
+ * - X-Intervention placed only once (in Positionierungsaussage)
+ * - No decorative elements, pure content hierarchy
+ * - Generous whitespace to create breathing room
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <main>
+    <!-- =================================================================
+         1. Opening Statement (Hero)
+         Design: Trust Blue background, prominent X logo, white text
+         ================================================================= -->
+    <section class="bg-trust-blue pt-[40px] pb-[60px] md:pt-[60px] md:pb-[80px] text-white">
+      <div class="mx-auto max-w-[800px] px-6 text-center md:px-8">
+        <!-- Centered Logo above text - 10% larger, full opacity -->
+        <img
+          src="/Lexit_X_logo_dark_bg.png"
+          alt="LexIT Executive Governance"
+          class="mx-auto mb-8 w-[220px] md:w-[385px] lg:w-[440px]"
+        />
+        <h1 class="text-[36px] md:text-[48px] font-semibold leading-[1.1] tracking-[-0.02em]">
+          IT-Compliance und Produktdesign für IT-Services.
+        </h1>
+        <p class="mt-6 text-[16px] md:text-[18px] leading-[1.6] text-white/80">
+          Praktisch umsetzbar, ohne Bürokratie-Overhead.
+        </p>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         2. Leistungsübersicht
+         Design: 3 cards with off-white background and amber top border
+         ================================================================= -->
+    <section id="leistungen" class="pt-[80px] pb-[100px] md:pt-[100px] md:pb-[140px] bg-white">
+      <div class="mx-auto max-w-6xl px-6 md:px-8">
+        <div class="grid gap-8 md:grid-cols-3 md:gap-6">
+
+          <!-- IT-Compliance Card -->
+          <article class="bg-off-white border-t-4 border-controlled-amber p-8 md:p-10">
+            <h2 class="text-h2-mobile md:text-h2 mb-4">
+              IT-Compliance
+            </h2>
+            <p class="text-body-mobile md:text-body">
+              NIS2, DORA, AI Act, DSGVO &ndash; Anforderungen praktisch umsetzen.
+              Dokumentation für Behörden, Integration in bestehende Strukturen,
+              Mitarbeitersensibilisierung wo nötig.
+            </p>
+          </article>
+
+          <!-- IT-Governance Card -->
+          <article class="bg-off-white border-t-4 border-controlled-amber p-8 md:p-10">
+            <h2 class="text-h2-mobile md:text-h2 mb-4">
+              IT-Governance
+            </h2>
+            <p class="text-body-mobile md:text-body">
+              Strukturierte Steuerung von IT-Systemen und IT-Services.
+              Klare Verantwortlichkeiten, Risikomanagement, messbare Kennzahlen.
+              Kein ITIL-Theater.
+            </p>
+          </article>
+
+          <!-- Produktdesign Card -->
+          <article class="bg-off-white border-t-4 border-controlled-amber p-8 md:p-10">
+            <h2 class="text-h2-mobile md:text-h2 mb-4">
+              Produktdesign
+            </h2>
+            <p class="text-body-mobile md:text-body">
+              Neue IT-Services entwickeln &ndash; von der Idee über Servicebeschreibungen
+              bis zu Verträgen. Technische Architektur, SLAs, Pricing-Strukturen.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         3. Positionierungsaussage
+         Design: Trust Blue background, white text for readability
+         ================================================================= -->
+    <section id="ansatz" class="bg-trust-blue text-white">
+      <div class="mx-auto max-w-[700px] px-[40px] py-[60px] text-center md:px-[60px] md:py-[80px]">
+        <p class="text-[16px] md:text-[18px] leading-[1.6]">
+          Compliance ist kein Selbstzweck. Wir entwickeln Strukturen, die Wert schaffen
+          und gleichzeitig rechtliche Anforderungen erfüllen. Für Geschäftsführer und
+          IT-Verantwortliche in KMU &ndash; Österreich und Deutschland.
+        </p>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         4. Zielgruppen-Qualifikation
+         Design: Meta typography, slate color, centered narrow width
+         ================================================================= -->
+    <section id="ueber" class="pt-[80px] pb-[80px] md:pt-[100px] md:pb-[120px]">
+      <div class="mx-auto max-w-[600px] px-6 text-center md:px-8">
+        <p class="text-meta">
+          Dieses Angebot richtet sich an Geschäftsführer, IT-Leiter und
+          Compliance-Verantwortliche in kleinen und mittelständischen
+          Unternehmen (KMU) in Österreich und Deutschland.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

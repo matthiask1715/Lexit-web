@@ -1,0 +1,151 @@
+/* Google Fonts Import - Must be first */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
+
+@import "tailwindcss";
+
+/* =============================================================================
+   LexIT Executive Governance - Design System
+
+   Design Principle: Board Document Aesthetic
+   - Clean typography, generous whitespace, no decorative elements
+   - Print-first thinking, screen-optimized
+   ============================================================================= */
+
+@theme {
+  /* Colors - Strictly limited palette */
+  --color-trust-blue: #1F3A5F;
+  --color-ink: #111827;
+  --color-slate: #4B5563;
+  --color-line-grey: #E5E7EB;
+  --color-controlled-amber: #E07A2F;
+  --color-off-white: #F9FAFB;
+
+  /* Typography - IBM Plex Sans */
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+
+  /* Custom spacing for sections */
+  --spacing-section: 120px;
+  --spacing-section-mobile: 80px;
+  --spacing-large-pause: 160px;
+  --spacing-large-pause-mobile: 100px;
+  --spacing-medium-pause: 100px;
+  --spacing-medium-pause-mobile: 60px;
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography utility classes */
+@layer utilities {
+  /* H1 - Opening Statement */
+  .text-h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .text-h1-mobile {
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* H2 - Section Titles */
+  .text-h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    color: var(--color-trust-blue);
+  }
+
+  .text-h2-mobile {
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    color: var(--color-trust-blue);
+  }
+
+  /* H3 - Subsection Titles */
+  .text-h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* Body Text */
+  .text-body {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--color-ink);
+  }
+
+  .text-body-mobile {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--color-ink);
+  }
+
+  /* Meta Text - Small annotations */
+  .text-meta {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--color-slate);
+  }
+
+  /* Section spacing */
+  .section-gap {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+  }
+
+  .large-pause {
+    padding-top: var(--spacing-large-pause);
+    padding-bottom: var(--spacing-large-pause);
+  }
+
+  .medium-pause {
+    padding-top: var(--spacing-medium-pause);
+    padding-bottom: var(--spacing-medium-pause);
+  }
+}
+
+/* Link styles - Subtle, professional */
+a {
+  color: var(--color-trust-blue);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+a:hover {
+  color: var(--color-controlled-amber);
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-trust-blue);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-trust-blue);
+  color: white;
+}

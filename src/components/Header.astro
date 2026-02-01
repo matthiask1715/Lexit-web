@@ -1,0 +1,59 @@
+---
+/**
+ * Header.astro
+ *
+ * Minimal navigation header.
+ * Design: Logo left, text navigation right.
+ * No hamburger menu - navigation items remain visible on mobile (stacked).
+ *
+ * Design Decision: Using text links only, no buttons.
+ * Navigation stays accessible on all screen sizes.
+ */
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navItems = [
+  { href: '#leistungen', label: 'Leistungen' },
+  { href: '#ansatz', label: 'Ansatz' },
+  { href: '#ueber', label: 'Über LexIT' },
+  { href: '#kontakt', label: 'Kontakt' },
+];
+---
+
+<header class="w-full border-b-2 border-controlled-amber">
+  <div class="mx-auto max-w-6xl px-6 py-3 md:px-8 md:py-4">
+    <nav
+      class="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between"
+      aria-label="Hauptnavigation"
+    >
+      <!-- Logo: 50% larger (210px mobile, 270px desktop) -->
+      <a href="/" class="block" aria-label="LexIT - Zur Startseite">
+        <img
+          src="/Lexit_X_logo_only.png"
+          alt="LexIT Logo"
+          width="270"
+          height="auto"
+          class="h-auto w-[210px] md:w-[270px]"
+        />
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="flex flex-wrap gap-x-8 gap-y-2">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="text-meta font-medium text-trust-blue hover:text-controlled-amber transition-colors duration-200"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

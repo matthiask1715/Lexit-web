@@ -1,0 +1,131 @@
+/**
+ * print.css - LexIT Print Stylesheet
+ *
+ * Purpose: Ensure the website prints cleanly as a professional document.
+ * Design Principle: Remove all decorative elements, maximize readability.
+ *
+ * Key Decisions:
+ * - Black text on white background for maximum contrast
+ * - Remove X-Intervention (decorative only)
+ * - Show URLs inline for links
+ * - Consistent margins for professional appearance
+ */
+
+@media print {
+  /* Reset backgrounds and colors for clean printing */
+  *,
+  *::before,
+  *::after {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Preserve heading hierarchy with darker color */
+  h1,
+  h2,
+  h3 {
+    color: #333 !important;
+    page-break-after: avoid;
+  }
+
+  /* Ensure headings and paragraphs stay together */
+  h1,
+  h2,
+  h3,
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Hide decorative X-Intervention */
+  .x-intervention {
+    display: none !important;
+  }
+
+  /* Show link URLs inline */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #666 !important;
+  }
+
+  /* Don't show URL for anchor links */
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  /* Don't show URL for javascript links */
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  /* Section spacing for print */
+  section {
+    margin-bottom: 40px;
+    page-break-inside: avoid;
+  }
+
+  /* Hide navigation in print */
+  nav {
+    display: none !important;
+  }
+
+  /* Ensure footer prints but without navigation */
+  footer {
+    border-top: 1px solid #ccc !important;
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 2cm;
+  }
+
+  /* First page specific */
+  @page :first {
+    margin-top: 3cm;
+  }
+
+  /* Body typography for print */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Headings sizing for print */
+  h1 {
+    font-size: 24pt;
+  }
+
+  h2 {
+    font-size: 18pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+  }
+
+  /* Images: ensure they don't overflow and break pages */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Hide header logo in print, content speaks for itself */
+  header img {
+    width: 80px !important;
+    opacity: 0.7;
+  }
+
+  /* Preserve grid layout where possible */
+  .grid {
+    display: block;
+  }
+
+  .grid > * {
+    margin-bottom: 24px;
+  }
+}

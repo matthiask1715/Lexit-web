@@ -1,0 +1,62 @@
+---
+/**
+ * BaseLayout.astro
+ *
+ * Core layout for all LexIT pages.
+ * Implements: SEO meta tags, Google Fonts preload, print stylesheet.
+ */
+
+import '../styles/global.css';
+import '../styles/print.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'LexIT Executive Governance | IT-Compliance & IT-Governance',
+  description = 'IT-Compliance und Produktdesign für IT-Services. Praktisch umsetzbar, ohne Bürokratie-Overhead. Für Geschäftsführer und IT-Verantwortliche in KMU.'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://lexit.at');
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="de_AT" />
+    <meta property="og:site_name" content="LexIT Executive Governance" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/Lexit_x.png" />
+
+    <!-- Google Fonts Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="min-h-screen bg-white">
+    <slot />
+  </body>
+</html>

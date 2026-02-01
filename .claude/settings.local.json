@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create astro@latest:*)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/usr/local/bin:$HOME/.nvm/versions/node/*/bin:$PATH\")",
+      "Bash(node --version:*)",
+      "Bash(source ~/.zshrc)",
+      "Bash(npm --version:*)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v24.13.0/bin:$PATH\")",
+      "Bash(npx astro:*)",
+      "Bash(ls:*)",
+      "Bash(npm run build:*)",
+      "Bash(head:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}
