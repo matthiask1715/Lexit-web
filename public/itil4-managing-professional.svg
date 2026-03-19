@@ -1,0 +1,16 @@
+<svg width="360" height="220" viewBox="0 0 360 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ITIL 4 Managing Professional Badge</title>
+  <desc id="desc">Minimal badge with compass and grid for ITIL 4 Managing Professional.</desc>
+  <rect x="8" y="8" width="344" height="204" rx="18" fill="#F9FAFB" stroke="#1F3A5F" stroke-width="2"/>
+  <rect x="28" y="24" width="82" height="26" rx="13" fill="#1F3A5F"/>
+  <text x="69" y="42" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="12" letter-spacing="1.1" fill="#FFFFFF">ITIL 4</text>
+
+  <circle cx="180" cy="112" r="46" stroke="#1F3A5F" stroke-width="3"/>
+  <path d="M180 74 L180 150 M142 112 L218 112" stroke="#1F3A5F" stroke-width="2"/>
+  <circle cx="180" cy="74" r="4" fill="#E07A2F"/>
+  <circle cx="180" cy="150" r="4" fill="#E07A2F"/>
+  <circle cx="142" cy="112" r="4" fill="#E07A2F"/>
+  <circle cx="218" cy="112" r="4" fill="#E07A2F"/>
+
+  <text x="180" y="194" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827">Managing Professional</text>
+</svg>
