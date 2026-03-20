@@ -1,0 +1,146 @@
+---
+import V2BaseLayout from '../../layouts/V2BaseLayout.astro';
+
+const content = {
+  meta: {
+    title: 'Impressum | LexIT V2',
+    description: 'Impressum der LexIT Unternehmensberatung nach ECG und MedienG.',
+  },
+  hero: {
+    kicker: 'Rechtliches',
+    title: 'Impressum',
+    lead: 'Angaben nach § 5 ECG und § 25 MedienG.',
+  },
+  business: [
+    'LExIT Unternehmensberatung',
+    'Mag. Matthias König, MA',
+    'Stiftingtalstraße 126',
+    '8010 Graz',
+    'Österreich',
+  ],
+  contact: {
+    phoneLabel: '0660 / 60 88 762',
+    emailParts: ['office', 'lexit', 'cc'],
+  },
+  sections: [
+    {
+      title: 'Unternehmensgegenstand',
+      paragraphs: ['Unternehmensberatung einschließlich der Unternehmensorganisation'],
+    },
+    {
+      title: 'UID-Nummer',
+      paragraphs: ['ATU81103459'],
+    },
+    {
+      title: 'Gewerberechtliche Vorschriften',
+      paragraphs: [
+        'Berufsbezeichnung: Unternehmensberater',
+        'Verleihungsstaat: Österreich',
+        'Zuständige Gewerbebehörde: Magistrat der Stadt Graz',
+        'Kammerzugehörigkeit: Wirtschaftskammer Steiermark',
+        'Anwendbare Rechtsvorschriften: Gewerbeordnung (GewO)',
+      ],
+      link: {
+        href: 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10007517',
+        label: 'ris.bka.gv.at',
+      },
+    },
+    {
+      title: 'Medieninhaber und Herausgeber',
+      paragraphs: [
+        'Mag. Matthias König, MA',
+        'Stiftingtalstraße 126',
+        '8010 Graz',
+        'Blattlinie: Information über Dienstleistungen im Bereich IT-Compliance, IT-Governance und Produktdesign für IT-Services.',
+      ],
+    },
+    {
+      title: 'EU-Streitschlichtung',
+      paragraphs: [
+        'Die Europäische Kommission betreibt eine Plattform zur Online-Streitbeilegung.',
+        'Dieses Angebot richtet sich an Unternehmen im Sinne des österreichischen KSchG. Wir nehmen nicht an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teil.',
+      ],
+      link: {
+        href: 'https://ec.europa.eu/consumers/odr/',
+        label: 'https://ec.europa.eu/consumers/odr/',
+      },
+    },
+    {
+      title: 'Haftungsausschluss',
+      paragraphs: [
+        'Wir erstellen die Inhalte dieser Website mit Sorgfalt. Für Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr.',
+        'Als Diensteanbieter tragen wir nach § 7 Abs. 1 ECG die Verantwortung für eigene Inhalte. Nach §§ 8 bis 10 ECG müssen wir übermittelte oder gespeicherte fremde Informationen nicht überwachen.',
+      ],
+    },
+  ],
+};
+---
+
+<V2BaseLayout
+  title={content.meta.title}
+  description={content.meta.description}
+  currentPath="/v2/impressum"
+>
+  <section class="v2s-section v2s-hero">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <p class="v2s-kicker">{content.hero.kicker}</p>
+        <h1 class="v2s-title">{content.hero.title}</h1>
+        <p class="v2s-lead">{content.hero.lead}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Angaben gemäß § 5 ECG und § 25 MedienG</h2>
+        {content.business.map((line) => (
+          <p class="v2s-copy">{line}</p>
+        ))}
+      </article>
+
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Kontakt</h2>
+        <p class="v2s-copy">
+          Telefon: <a href="#" class="contact-phone v2s-inline-link">{content.contact.phoneLabel}</a>
+        </p>
+        <p class="v2s-copy">
+          E-Mail:{' '}
+          <a href="#" class="contact-email v2s-inline-link">
+            <span aria-hidden="true">{content.contact.emailParts[0]}</span>@<span aria-hidden="true">{content.contact.emailParts[1]}</span>.<span aria-hidden="true">{content.contact.emailParts[2]}</span>
+          </a>
+        </p>
+      </article>
+
+      {content.sections.map((section) => (
+        <article class="v2s-panel" data-v2-reveal>
+          <h2 class="v2s-headline">{section.title}</h2>
+          {section.paragraphs.map((paragraph) => (
+            <p class="v2s-copy">{paragraph}</p>
+          ))}
+          {section.link && (
+            <p class="v2s-copy">
+              <a href={section.link.href} target="_blank" rel="noopener" class="v2s-inline-link">
+                {section.link.label}
+              </a>
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</V2BaseLayout>
+
+<script>
+  const p = ['0660', '60', '88', '762'].join('');
+  document.querySelectorAll('.contact-phone').forEach((el) => {
+    el.setAttribute('href', 'tel:+43' + p);
+  });
+
+  const e = ['office', 'lexit', 'cc'];
+  const emailAddress = `${e[0]}@${e[1]}.${e[2]}`;
+  document.querySelectorAll('.contact-email').forEach((el) => {
+    el.setAttribute('href', `mailto:${emailAddress}`);
+  });
+</script>

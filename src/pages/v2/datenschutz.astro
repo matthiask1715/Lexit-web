@@ -1,0 +1,225 @@
+---
+import V2BaseLayout from '../../layouts/V2BaseLayout.astro';
+
+const content = {
+  meta: {
+    title: 'Datenschutzerklärung | LexIT V2',
+    description: 'Datenschutzerklärung der LexIT Unternehmensberatung nach DSGVO.',
+  },
+  hero: {
+    kicker: 'Rechtliches',
+    title: 'Datenschutzerklärung',
+    lead: 'Informationen zur Verarbeitung personenbezogener Daten auf dieser Website.',
+  },
+  sections: [
+    {
+      title: '1. Verantwortlicher',
+      paragraphs: [
+        'Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO):',
+        'LExIT Unternehmensberatung, Mag. Matthias König, MA, Stiftingtalstraße 126, 8010 Graz, Österreich',
+      ],
+      contact: true,
+    },
+    {
+      title: '2. Überblick der Verarbeitungen',
+      paragraphs: [
+        'Diese Website dient der Information. Personenbezogene Daten verarbeiten wir nur, wenn es für den Betrieb der Website oder für Ihre Anfrage nötig ist.',
+        'Die folgende Übersicht zeigt, welche Daten dabei anfallen und wofür wir sie nutzen.',
+      ],
+      bullets: [
+        'Kontaktdaten (bei Kontaktaufnahme per E-Mail oder Telefon)',
+        'Inhaltsdaten (Inhalte Ihrer Nachrichten)',
+        'Nutzungsdaten (technische Zugriffsdaten, siehe Server-Log-Dateien)',
+      ],
+    },
+    {
+      title: '3. Rechtsgrundlagen',
+      paragraphs: ['Wir verarbeiten Daten auf Grundlage der DSGVO, vor allem nach:'],
+      bullets: [
+        'Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)',
+        'Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung bzw. vorvertragliche Maßnahmen)',
+        'Art. 6 Abs. 1 lit. f DSGVO (berechtigte Interessen)',
+      ],
+    },
+    {
+      title: '4. Ihre Rechte als betroffene Person',
+      paragraphs: ['Nach der DSGVO haben Sie diese Rechte:'],
+      bullets: [
+        'Auskunftsrecht (Art. 15 DSGVO)',
+        'Berichtigungsrecht (Art. 16 DSGVO)',
+        'Löschungsrecht (Art. 17 DSGVO)',
+        'Einschränkung der Verarbeitung (Art. 18 DSGVO)',
+        'Datenübertragbarkeit (Art. 20 DSGVO)',
+        'Widerspruchsrecht (Art. 21 DSGVO)',
+        'Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)',
+      ],
+      authority: {
+        title: 'Beschwerderecht:',
+        lines: [
+          'Österreichische Datenschutzbehörde',
+          'Barichgasse 40–42',
+          '1030 Wien',
+          'Telefon: +43 1 52 152-0',
+          'E-Mail: dsb@dsb.gv.at',
+        ],
+        link: {
+          href: 'https://www.dsb.gv.at',
+          label: 'www.dsb.gv.at',
+        },
+      },
+    },
+    {
+      title: '5. Hosting',
+      paragraphs: [
+        'Diese Website hostet folgender Anbieter:',
+        '[HOSTING-ANBIETER EINFÜGEN, z.B. Netlify, Vercel, etc.] | [ADRESSE DES ANBIETERS]',
+        'Der Hosting-Anbieter speichert technisch nötige Informationen in Server-Log-Dateien. Diese Daten führen wir nicht mit anderen Datenquellen zusammen.',
+        'Die Verarbeitung erfolgt nach Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer stabilen und sicheren Bereitstellung der Website.',
+      ],
+      bullets: [
+        'Browsertyp und Browserversion',
+        'Verwendetes Betriebssystem',
+        'Referrer URL',
+        'Hostname des zugreifenden Rechners',
+        'IP-Adresse',
+        'Uhrzeit der Serveranfrage',
+      ],
+    },
+    {
+      title: '6. Google Fonts',
+      paragraphs: [
+        'Diese Website nutzt Google Fonts von Google LLC für die Darstellung von Schriftarten.',
+        'Beim Aufruf lädt Ihr Browser die benötigten Schriftarten. Dabei baut Ihr Browser eine Verbindung zu Google-Servern auf und übermittelt Ihre IP-Adresse.',
+        'Die Nutzung erfolgt nach Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer einheitlichen Darstellung der Website.',
+        'Google stützt Datenübertragungen in die USA auf das EU-US Data Privacy Framework.',
+      ],
+      link: {
+        href: 'https://policies.google.com/privacy',
+        label: 'https://policies.google.com/privacy',
+      },
+    },
+    {
+      title: '7. Kontaktaufnahme',
+      paragraphs: [
+        'Wenn Sie uns per E-Mail oder Telefon kontaktieren, speichern wir Ihre Angaben und Kontaktdaten zur Bearbeitung der Anfrage und für Rückfragen.',
+        'Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Maßnahmen oder Art. 6 Abs. 1 lit. f DSGVO für unser berechtigtes Interesse an der Beantwortung von Anfragen.',
+        'Wir speichern diese Daten bis der Zweck entfällt oder Sie die Löschung verlangen. Gesetzliche Aufbewahrungsfristen bleiben unberührt.',
+      ],
+    },
+    {
+      title: '8. Cookies',
+      paragraphs: [
+        'Diese Website setzt keine Cookies für Tracking oder Analyse ein.',
+        'Falls Cookies nötig sind, dienen sie nur der technischen Funktion der Website.',
+      ],
+    },
+    {
+      title: '9. SSL-Verschlüsselung',
+      paragraphs: [
+        'Diese Website nutzt aus Sicherheitsgründen eine SSL-Verschlüsselung.',
+        'Eine verschlüsselte Verbindung erkennen Sie am Wechsel von "http://" zu "https://" und am Schloss-Symbol im Browser.',
+        'Bei aktiver SSL-Verschlüsselung können Dritte übermittelte Daten nicht mitlesen.',
+      ],
+    },
+    {
+      title: '10. Aktualität und Änderungen',
+      paragraphs: [
+        'Diese Datenschutzerklärung gilt mit Stand Februar 2025.',
+        'Wenn wir die Website weiterentwickeln oder sich gesetzliche Vorgaben ändern, passen wir diese Datenschutzerklärung an.',
+      ],
+    },
+  ],
+  contact: {
+    phoneLabel: '0660 / 60 88 762',
+    emailParts: ['office', 'lexit', 'cc'],
+  },
+};
+---
+
+<V2BaseLayout
+  title={content.meta.title}
+  description={content.meta.description}
+  currentPath="/v2/datenschutz"
+>
+  <section class="v2s-section v2s-hero">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <p class="v2s-kicker">{content.hero.kicker}</p>
+        <h1 class="v2s-title">{content.hero.title}</h1>
+        <p class="v2s-lead">{content.hero.lead}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid">
+      {content.sections.map((section) => (
+        <article class="v2s-panel" data-v2-reveal>
+          <h2 class="v2s-headline">{section.title}</h2>
+
+          {section.paragraphs.map((paragraph) => (
+            <p class="v2s-copy">{paragraph}</p>
+          ))}
+
+          {section.contact && (
+            <>
+              <p class="v2s-copy">
+                Telefon: <a href="#" class="contact-phone v2s-inline-link">{content.contact.phoneLabel}</a>
+              </p>
+              <p class="v2s-copy">
+                E-Mail:{' '}
+                <a href="#" class="contact-email v2s-inline-link">
+                  <span aria-hidden="true">{content.contact.emailParts[0]}</span>@<span aria-hidden="true">{content.contact.emailParts[1]}</span>.<span aria-hidden="true">{content.contact.emailParts[2]}</span>
+                </a>
+              </p>
+            </>
+          )}
+
+          {section.bullets && (
+            <ul class="v2s-list">
+              {section.bullets.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+
+          {section.authority && (
+            <>
+              <p class="v2s-copy"><strong>{section.authority.title}</strong></p>
+              {section.authority.lines.map((line) => (
+                <p class="v2s-copy">{line}</p>
+              ))}
+              <p class="v2s-copy">
+                Website:{' '}
+                <a href={section.authority.link.href} target="_blank" rel="noopener" class="v2s-inline-link">
+                  {section.authority.link.label}
+                </a>
+              </p>
+            </>
+          )}
+
+          {section.link && (
+            <p class="v2s-copy">
+              <a href={section.link.href} target="_blank" rel="noopener" class="v2s-inline-link">
+                {section.link.label}
+              </a>
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</V2BaseLayout>
+
+<script>
+  const p = ['0660', '60', '88', '762'].join('');
+  document.querySelectorAll('.contact-phone').forEach((el) => {
+    el.setAttribute('href', 'tel:+43' + p);
+  });
+
+  const e = ['office', 'lexit', 'cc'];
+  const emailAddress = `${e[0]}@${e[1]}.${e[2]}`;
+  document.querySelectorAll('.contact-email').forEach((el) => {
+    el.setAttribute('href', `mailto:${emailAddress}`);
+  });
+</script>

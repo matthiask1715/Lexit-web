@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LexIT light icon">
+  <rect width="64" height="64" rx="14" fill="#ffffff" />
+  <path d="M16 14h10l6 10 6-10h10L38 32l10 18H38l-6-10-6 10H16l10-18z" fill="#1f3a5f" />
+  <circle cx="52" cy="12" r="4" fill="#e07a2f" />
+</svg>

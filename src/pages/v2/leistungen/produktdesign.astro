@@ -1,0 +1,200 @@
+---
+import V2BaseLayout from '../../../layouts/V2BaseLayout.astro';
+
+const content = {
+  meta: {
+    title: 'Produktdesign für IT-Services | LexIT V2',
+    description:
+      'IT-Services mit Executive-Schärfe: klarer Scope, saubere SLA und Vertragslogik für Vertrieb, Betrieb und Kunden.',
+  },
+  hero: {
+    kicker: 'Leistungen',
+    title: 'Produktdesign für IT-Services',
+    lead:
+      'LexIT schärft Ihre Services, damit Vertrieb, Betrieb und Kunde dieselbe Leistung vor Augen haben.',
+  },
+  intro: [
+    {
+      title: 'Adressaten',
+      paragraphs: [
+        'Für IT-Dienstleister und Managed Service Provider, die Portfolio, Positionierung und Vermarktung schärfen wollen.',
+        'Für interne IT-Abteilungen, die Leistungen klar beschreiben und steuern müssen.',
+        'Für Unternehmen mit IT-Ausgründungen oder konzerninterner Leistungserbringung.',
+      ],
+    },
+    {
+      title: 'Geschäftsrisiko',
+      paragraphs: [
+        'Viele Services wachsen ohne klare Scope-Definition. Erwartungen steigen schneller als Vertrags- und Betriebslogik.',
+        'Unklarer Umfang belastet Support, drückt Margen und schwächt die Kundenbeziehung.',
+      ],
+    },
+    {
+      title: 'Mandatsansatz',
+      paragraphs: [
+        'LexIT führt Services wie Produkte: mit Scope, Beschreibung, SLA, Preis und Vertrag in einer Linie.',
+        'Wir bringen Vertrieb und Betrieb auf dieselbe Linie, damit Ihr Team Angebote verkauft und sauber erfüllt.',
+      ],
+    },
+  ],
+  deliverables: [
+    {
+      label: '01',
+      title: 'Servicekatalog',
+      text: 'Sie erhalten eine klare Portfolio-Übersicht mit Zielgruppe, Nutzen und Preiskategorie.',
+    },
+    {
+      label: '02',
+      title: 'Servicebeschreibungen',
+      text: 'Sie sehen, was enthalten ist, was fehlt und welche Voraussetzungen gelten.',
+    },
+    {
+      label: '03',
+      title: 'SLA-Framework',
+      text: 'Sie erhalten SLA mit Zielwerten, Berichtspunkten und Eskalationspfaden.',
+    },
+    {
+      label: '04',
+      title: 'Preismodelle',
+      text: 'Sie erhalten Preismodelle, die zu Aufwand, Markt und Betrieb passen.',
+    },
+    {
+      label: '05',
+      title: 'Vertragsvorlagen',
+      text: 'Sie erhalten Vorlagen für Rahmenverträge, Leistungsscheine und Auftragslogik.',
+    },
+    {
+      label: '06',
+      title: 'Betriebshandbücher',
+      text: 'Ihr Team erhält klare Unterlagen für Onboarding, Leistungserbringung und Incident-Handling.',
+    },
+  ],
+  experience: {
+    title: 'Erfahrung',
+    paragraphs: [
+      'LexIT bringt Erfahrung aus SLA-Verhandlungen, Service-Weiterentwicklung und IT-Betrieb mit.',
+      'Juristische Ausbildung und technisches Verständnis geben Vertrags- und Leistungslogik Substanz.',
+    ],
+    points: [
+      'Jahrelange Erfahrung in gelebter Unternehmenspraxis',
+      'Erfahrung im Service-Management-Umfeld',
+      'Juristische Ausbildung für Vertragsgestaltung',
+      'Technisches Verständnis aus IT-Law and Management',
+    ],
+  },
+  process: [
+    {
+      label: '1',
+      title: 'Bestandsaufnahme',
+      text: 'Wir prüfen Portfolio, Dokumentation und die Lücken mit dem größten Risiko.',
+    },
+    {
+      label: '2',
+      title: 'Workshop',
+      text: 'Wir definieren Scope, Optionen, Ausschlüsse und Leistungsversprechen je Service.',
+    },
+    {
+      label: '3',
+      title: 'Dokumentation',
+      text: 'Wir erstellen Servicebeschreibungen, SLA und Vertragsvorlagen mit Ihrem Feedback.',
+    },
+    {
+      label: '4',
+      title: 'Rollout',
+      text: 'Wir führen das Setup in Vertrieb und Betrieb ein und übergeben es an Ihr Team.',
+    },
+  ],
+  cta: {
+    title: 'Schärfen wir Ihr Service-Portfolio.',
+    text: 'LexIT bringt Scope, SLA, Preis und Vertrag in ein führbares Angebot.',
+    href: '/v2/kontakt',
+    label: 'Vertrauliches Erstgespräch',
+  },
+};
+---
+
+<V2BaseLayout
+  title={content.meta.title}
+  description={content.meta.description}
+  currentPath="/v2/leistungen/produktdesign"
+>
+  <section class="v2s-section v2s-hero">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <p class="v2s-kicker">{content.hero.kicker}</p>
+        <h1 class="v2s-title">{content.hero.title}</h1>
+        <p class="v2s-lead">{content.hero.lead}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid v2s-grid-3">
+      {content.intro.map((block) => (
+        <article class="v2s-panel" data-v2-reveal>
+          <h2 class="v2s-headline">{block.title}</h2>
+          {block.paragraphs.map((paragraph) => (
+            <p class="v2s-copy">{paragraph}</p>
+          ))}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Lieferumfang</h2>
+
+        <div class="v2s-grid v2s-grid-3 v2s-mt-1">
+          {content.deliverables.map((item) => (
+            <article class="v2s-card">
+              <p class="v2s-card-label">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid v2s-grid-2">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">{content.experience.title}</h2>
+        {content.experience.paragraphs.map((paragraph) => (
+          <p class="v2s-copy">{paragraph}</p>
+        ))}
+        <ul class="v2s-list">
+          {content.experience.points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Typischer Ablauf</h2>
+        <ol class="v2s-steps">
+          {content.process.map((step) => (
+            <li>
+              <strong>{step.label}. {step.title}:</strong> {step.text}
+            </li>
+          ))}
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <h2 class="v2s-headline">{content.cta.title}</h2>
+        <p class="v2s-copy">{content.cta.text}</p>
+        <p class="v2s-copy v2s-action-row">
+          <a href={content.cta.href} class="v2s-btn v2s-btn-solid">{content.cta.label}</a>
+        </p>
+      </article>
+    </div>
+  </section>
+</V2BaseLayout>

@@ -1,0 +1,186 @@
+---
+import V2BaseLayout from '../../layouts/V2BaseLayout.astro';
+
+const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+
+const content = {
+  meta: {
+    title: 'Kontakt | LexIT V2',
+    description:
+      'Kontakt zu LexIT für Executive IT-Compliance, IT-Governance und Produktdesign.',
+  },
+  hero: {
+    kicker: 'Direkter Austausch',
+    title: 'Kontakt',
+    lead:
+      'Sie wollen ein Vorhaben besprechen? Schreiben Sie uns. Wir melden uns mit einem Vorschlag für den nächsten Schritt.',
+  },
+  form: {
+    actionBase: 'https://formspree.io/f/',
+    fields: [
+      {
+        id: 'name',
+        name: 'name',
+        label: 'Name',
+        type: 'text',
+        required: true,
+        autocomplete: 'name',
+        placeholder: 'Ihr Name',
+      },
+      {
+        id: 'email',
+        name: 'email',
+        label: 'E-Mail',
+        type: 'email',
+        required: true,
+        autocomplete: 'email',
+        placeholder: 'ihre@email.at',
+      },
+      {
+        id: 'company',
+        name: 'company',
+        label: 'Unternehmen',
+        type: 'text',
+        required: false,
+        autocomplete: 'organization',
+        placeholder: 'Ihr Unternehmen (optional)',
+      },
+    ],
+    subject: {
+      id: 'subject',
+      name: 'subject',
+      label: 'Betreff',
+      required: true,
+      options: [
+        { value: '', label: 'Bitte wählen...' },
+        { value: 'IT-Compliance', label: 'IT-Compliance (NIS2, DORA, AI Act)' },
+        { value: 'IT-Governance', label: 'IT-Governance' },
+        { value: 'Produktdesign', label: 'Produktdesign für IT-Services' },
+        { value: 'Allgemeine Anfrage', label: 'Allgemeine Anfrage' },
+      ],
+    },
+    message: {
+      id: 'message',
+      name: 'message',
+      label: 'Nachricht',
+      required: true,
+      placeholder: 'Worum geht es?',
+    },
+    privacy: {
+      id: 'privacy',
+      name: 'privacy',
+      required: true,
+      text: 'Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.',
+    },
+    submit: 'Nachricht senden',
+  },
+  contact: {
+    intro: 'Für ein direktes Gespräch:',
+    phone: { href: '#', label: '0660 / 60 88 762' },
+    location: 'Graz, Steiermark, Österreich',
+  },
+};
+---
+
+<V2BaseLayout
+  title={content.meta.title}
+  description={content.meta.description}
+  currentPath="/v2/kontakt"
+>
+  <section class="v2s-section v2s-hero">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <p class="v2s-kicker">{content.hero.kicker}</p>
+        <h1 class="v2s-title">{content.hero.title}</h1>
+        <p class="v2s-lead">{content.hero.lead}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid v2s-grid-2">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Vertrauliche Anfrage</h2>
+
+        <form
+          action={`${content.form.actionBase}${FORMSPREE_ID}`}
+          method="POST"
+          class="v2s-form-grid v2s-mt-1"
+        >
+          <input type="text" name="_gotcha" class="v2s-hidden" />
+
+          {content.form.fields.map((field) => (
+            <div>
+              <label for={field.id} class="v2s-label">
+                {field.label} {field.required && <span class="v2s-required">*</span>}
+              </label>
+              <input
+                id={field.id}
+                name={field.name}
+                type={field.type}
+                required={field.required}
+                autocomplete={field.autocomplete}
+                class="v2s-input"
+                placeholder={field.placeholder}
+              />
+            </div>
+          ))}
+
+          <div>
+            <label for={content.form.subject.id} class="v2s-label">
+              {content.form.subject.label} <span class="v2s-required">*</span>
+            </label>
+            <select
+              id={content.form.subject.id}
+              name={content.form.subject.name}
+              required={content.form.subject.required}
+              class="v2s-select"
+            >
+              {content.form.subject.options.map((option) => (
+                <option value={option.value}>{option.label}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label for={content.form.message.id} class="v2s-label">
+              {content.form.message.label} <span class="v2s-required">*</span>
+            </label>
+            <textarea
+              id={content.form.message.id}
+              name={content.form.message.name}
+              required={content.form.message.required}
+              class="v2s-textarea"
+              placeholder={content.form.message.placeholder}
+            ></textarea>
+          </div>
+
+          <label class="v2s-copy v2s-check-row">
+            <input type="checkbox" id={content.form.privacy.id} name={content.form.privacy.name} required={content.form.privacy.required} />
+            <span>{content.form.privacy.text} <span class="v2s-required">*</span></span>
+          </label>
+
+          <button type="submit" class="v2s-btn v2s-btn-solid">
+            {content.form.submit}
+          </button>
+        </form>
+      </article>
+
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Direkter Kontakt</h2>
+        <p class="v2s-copy">{content.contact.intro}</p>
+        <p class="v2s-copy">
+          <a href={content.contact.phone.href} class="contact-phone v2s-inline-link">{content.contact.phone.label}</a>
+        </p>
+        <p class="v2s-copy">{content.contact.location}</p>
+      </article>
+    </div>
+  </section>
+</V2BaseLayout>
+
+<script>
+  const p = ['0660', '60', '88', '762'].join('');
+  document.querySelectorAll('.contact-phone').forEach((el) => {
+    el.setAttribute('href', 'tel:+43' + p);
+  });
+</script>

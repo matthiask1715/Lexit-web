@@ -1,0 +1,201 @@
+---
+import V2BaseLayout from '../../../layouts/V2BaseLayout.astro';
+
+const content = {
+  meta: {
+    title: 'IT-Compliance | LexIT V2',
+    description:
+      'Executive IT-Compliance für NIS2, DORA, AI Act und DSGVO. Prioritäten, Nachweise und Verantwortung in einem belastbaren Rahmen.',
+  },
+  hero: {
+    kicker: 'Leistungen',
+    title: 'IT-Compliance',
+    lead:
+      'LexIT bringt regulatorische Pflichten in eine Reihenfolge, die Management und Fachbereiche tragen können.',
+  },
+  intro: [
+    {
+      title: 'Management-Druck',
+      paragraphs: [
+        'NIS2, DORA, AI Act und DSGVO treffen auf knappe Teams, laufenden Betrieb und Berichtspflichten.',
+        'Ohne Priorisierung verliert die Leitung Zeit, Orientierung und Entscheidungskraft.',
+      ],
+    },
+    {
+      title: 'Mandatsansatz',
+      paragraphs: [
+        'LexIT klärt zuerst Relevanz, Risiko und Frist je Thema. Danach setzen wir Verantwortung, Maßnahmen und Nachweise auf.',
+        'Wir nutzen vorhandene Prozesse und Rollen. Ergänzungen setzen wir dort, wo Führung und Prüfung belastbare Strukturen brauchen.',
+      ],
+    },
+  ],
+  chain: {
+    title: 'Vom Regelwerk zur Managementsteuerung',
+    lead:
+      'Wir übersetzen externe Vorgaben in Regeln, Kontrollen und Berichte. So sieht die Leitung, was steht, was fehlt und wo sie entscheiden muss.',
+    steps: [
+      {
+        title: 'Außen',
+        text: 'NIS2, DORA, AI Act und DSGVO setzen den Rahmen.',
+      },
+      {
+        title: 'Innen',
+        text: 'Richtlinien, Policies und Kontrollen machen daraus klare Aufgaben.',
+      },
+      {
+        title: 'Steuerung',
+        text: 'Nachweise aus den Fachbereichen fließen in Berichte und Entscheidungen.',
+      },
+    ],
+  },
+  regulations: [
+    {
+      title: 'NIS2-Richtlinie',
+      text: 'NIS2 verlangt Risikomanagement, Meldestrukturen und klare Zuständigkeiten für betroffene Einrichtungen.',
+      service:
+        'LexIT prüft Lücken, priorisiert Maßnahmen, erstellt Nachweise und bereitet auf Prüfungen vor.',
+    },
+    {
+      title: 'DORA',
+      text: 'DORA fordert belastbares IKT-Risikomanagement, Incident Reporting und Kontrolle von Drittanbietern.',
+      service:
+        'LexIT bewertet Risiken, schärft den Incident-Prozess und prüft Verträge mit Drittanbietern.',
+    },
+    {
+      title: 'AI Act',
+      text: 'Der AI Act verlangt eine Risikoklassifizierung, Dokumentation und klare Governance für KI-Systeme.',
+      service:
+        'LexIT klassifiziert Systeme, bewertet Risiken und legt Dokumentation und Zuständigkeiten fest.',
+    },
+    {
+      title: 'DSGVO',
+      text: 'Die DSGVO verlangt belastbare Verzeichnisse, Verträge und Prozesse für Betroffenenrechte.',
+      service:
+        'LexIT prüft den Stand, schließt Lücken und setzt Folgenabschätzungen und Schulungen auf.',
+    },
+  ],
+  deliverables: [
+    {
+      label: '01',
+      title: 'Management-Lagebild',
+      text: 'Sie sehen, was steht, was fehlt und was zuerst auf den Tisch muss.',
+    },
+    {
+      label: '02',
+      title: 'Maßnahmenplan',
+      text: 'Sie erhalten Aufgaben, Reihenfolge, Termine und Verantwortung.',
+    },
+    {
+      label: '03',
+      title: 'Dokumentation',
+      text: 'Sie erhalten Richtlinien, Prozesse und Nachweise für Audit, Bericht und Betrieb.',
+    },
+    {
+      label: '04',
+      title: 'Wissenstransfer',
+      text: 'Ihre Führungskräfte und Teams verstehen das Setup und führen es weiter.',
+    },
+  ],
+  cta: {
+    title: 'Ordnen wir Ihren Handlungsbedarf.',
+    text: 'Im Erstgespräch klären wir Reifegrad, Prioritäten und den Startpunkt für ein belastbares Compliance-Mandat.',
+    href: '/v2/kontakt',
+    label: 'Vertrauliches Erstgespräch',
+  },
+};
+---
+
+<V2BaseLayout
+  title={content.meta.title}
+  description={content.meta.description}
+  currentPath="/v2/leistungen/it-compliance"
+>
+  <section class="v2s-section v2s-hero">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <p class="v2s-kicker">{content.hero.kicker}</p>
+        <h1 class="v2s-title">{content.hero.title}</h1>
+        <p class="v2s-lead">{content.hero.lead}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid v2s-grid-2">
+      {content.intro.map((block) => (
+        <article class="v2s-panel" data-v2-reveal>
+          <h2 class="v2s-headline">{block.title}</h2>
+          {block.paragraphs.map((paragraph) => (
+            <p class="v2s-copy">{paragraph}</p>
+          ))}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">{content.chain.title}</h2>
+        <p class="v2s-copy">{content.chain.lead}</p>
+
+        <div class="v2s-grid v2s-grid-3 v2s-mt-1">
+          {content.chain.steps.map((step) => (
+            <section class="v2s-card">
+              <p class="v2s-card-label">{step.title}</p>
+              <p>{step.text}</p>
+            </section>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Regulierungen im Fokus</h2>
+
+        <div class="v2s-grid v2s-grid-2 v2s-mt-1">
+          {content.regulations.map((regulation) => (
+            <article class="v2s-card">
+              <h3>{regulation.title}</h3>
+              <p>{regulation.text}</p>
+              <p><strong>Leistung:</strong> {regulation.service}</p>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Was Sie bekommen</h2>
+
+        <div class="v2s-grid v2s-grid-2 v2s-mt-1">
+          {content.deliverables.map((item) => (
+            <article class="v2s-card">
+              <p class="v2s-card-label">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <h2 class="v2s-headline">{content.cta.title}</h2>
+        <p class="v2s-copy">{content.cta.text}</p>
+        <p class="v2s-copy v2s-action-row">
+          <a href={content.cta.href} class="v2s-btn v2s-btn-solid">{content.cta.label}</a>
+        </p>
+      </article>
+    </div>
+  </section>
+</V2BaseLayout>

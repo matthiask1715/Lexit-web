@@ -1,0 +1,2232 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+type Surface = 'dark' | 'light';
+
+const content = {
+  meta: {
+    title: 'LexIT Executive Governance | V2',
+    description:
+      'Executive Governance für NIS2, DORA, AI Act und DSGVO. Klare Verantwortung, belastbare Nachweise, Entscheidungen mit Substanz.',
+  },
+  nav: {
+    ariaLabel: 'Hauptnavigation',
+    brand: {
+      href: '/',
+      srLabel: 'LexIT Startseite',
+      alt: 'LexIT Executive Governance Logo',
+      logos: {
+        lightOnDark: '/Lexit_X_logo_dark_bg.png',
+        darkOnLight: '/Lexit_X_logo_only.png',
+      },
+    },
+    links: [
+      { href: '#leistungen', label: 'Leistungen' },
+      { href: '#ansatz', label: 'Ansatz' },
+      { href: '#ueber', label: 'Über LexIT' },
+      { href: '#faq', label: 'FAQ' },
+    ],
+    cta: {
+      href: '/v2/kontakt',
+      label: 'Kontakt',
+    },
+  },
+  hero: {
+    id: 'hero',
+    logoSurface: 'dark' as Surface,
+    logoAlt: 'LexIT Brandmarke',
+    kicker: 'Executive Governance for Regulated IT',
+    title: 'Regulatorik verlangt Führung.',
+    description:
+      'LexIT bringt Ordnung in NIS2, DORA, AI Act und DSGVO. Sie erhalten klare Verantwortung, belastbare Nachweise und ein Setup für Managemententscheidungen.',
+    primaryCta: { href: '/v2/kontakt', label: 'Vertrauliches Erstgespräch' },
+    secondaryCta: { href: '#leistungen', label: 'Leistungsfelder prüfen' },
+    trustChips: [
+      '15+ Jahre Konzernpraxis',
+      'ISO 27001, ISO 9001, ISO 14001',
+      'Legal 500 GC Powerlist 2022 & 2024',
+      'Fokus: Österreich und Deutschland',
+    ],
+  },
+  sectionHeaders: {
+    problems: {
+      id: 'problemfelder',
+      kicker: 'Ausgangslage',
+      title: 'Wo Führung unter Druck gerät',
+      text: 'Wenn Rollen, Nachweise und Prioritäten auseinanderlaufen, verliert das Management Zeit, Kontrolle und Entscheidungstempo.',
+    },
+    solutions: {
+      id: 'leistungen',
+      kicker: 'Leistungen',
+      title: 'Drei Felder für belastbare Steuerung',
+      text: 'LexIT ordnet Regulierung, Verantwortung und Betrieb in ein steuerbares Modell.',
+    },
+    process: {
+      id: 'ansatz',
+      kicker: 'Vorgehen',
+      title: 'So entsteht Steuerungsfähigkeit',
+      text: 'Wir schaffen Lagebild, Verantwortung und Nachweislogik, damit Geschäftsführung und IT-Leitung Entscheidungen tragen können.',
+    },
+    stories: {
+      id: 'ueber',
+      kicker: 'Profil',
+      title: 'Führungserfahrung mit Umsetzungstiefe',
+      text: 'Matthias König verbindet juristische Präzision mit Verantwortung für Compliance, IT und Informationssicherheit.',
+    },
+    faq: {
+      id: 'faq',
+      kicker: 'FAQ',
+      title: 'Fragen vor dem Mandat',
+      text: 'Kurz zu Ablauf, Umfang und Zusammenarbeit.',
+    },
+  },
+  problemCards: [
+    {
+      title: 'Vorgaben treffen auf Betrieb',
+      tag: 'Komplexität',
+      text: 'NIS2, DORA, AI Act und DSGVO greifen zugleich in Organisation, IT und Berichtspflichten ein.',
+      impact: 'Die Leitung vertagt Entscheidungen, Fachbereiche arbeiten in getrennten Spuren.',
+    },
+    {
+      title: 'Nachweise bleiben fragmentiert',
+      tag: 'Audit-Druck',
+      text: 'Teams sammeln Dokumente, doch oft fehlt eine Struktur, die Verantwortung, Fristen und Evidenz zusammenführt.',
+      impact: 'IT, Legal und Compliance verlieren Zeit in Abstimmung, Prüfungen und Rückfragen.',
+    },
+    {
+      title: 'Kritische Entscheidungen haben keinen Pfad',
+      tag: 'Verantwortung',
+      text: 'Wenn Rollen und Eskalationspfade fehlen, bleibt offen, wer entscheidet, eskaliert und liefert.',
+      impact: 'Maßnahmen verlieren Priorität und Wirkung.',
+    },
+  ],
+  solutionCards: [
+    {
+      title: 'IT-Compliance',
+      href: '/v2/leistungen/it-compliance',
+      description:
+        'LexIT ordnet Pflichten, setzt Prioritäten und überführt Vorgaben in einen belastbaren Arbeitsplan.',
+      bullets: [
+        'NIS2, DORA, AI Act und DSGVO priorisieren',
+        'Pflichten in bestehende Abläufe einbauen',
+        'Nachweise für Audits und Prüfungen aufsetzen',
+      ],
+      linkLabel: 'Mehr zu IT-Compliance',
+    },
+    {
+      title: 'IT-Governance',
+      href: '/v2/leistungen/it-governance',
+      description:
+        'LexIT legt fest, wer entscheidet, wer Risiken trägt und welche Kennzahlen auf Leitungsebene zählen.',
+      bullets: [
+        'Rollen und Eskalationswege festlegen',
+        'Risiken mit Managemententscheidungen verknüpfen',
+        'Governance-Strukturen für Audits aufsetzen',
+      ],
+      linkLabel: 'Mehr zu IT-Governance',
+    },
+    {
+      title: 'Produktdesign für IT-Services',
+      href: '/v2/leistungen/produktdesign',
+      description:
+        'LexIT schärft IT-Services, bis Scope, SLA, Preis und Vertragslogik sauber greifen.',
+      bullets: [
+        'Nutzen und Zielbild für Kunden schärfen',
+        'Servicearchitektur mit SLA verbinden',
+        'Leistungsumfang für Vertrieb und Betrieb klären',
+      ],
+      linkLabel: 'Mehr zu Produktdesign',
+    },
+  ],
+  howSteps: [
+    {
+      step: '01',
+      title: 'Lagebild und Priorisierung',
+      text: 'Wir prüfen Anforderungen, Risiken, Rollen und Reifegrad.',
+    },
+    {
+      step: '02',
+      title: 'Governance-Design',
+      text: 'Wir legen Entscheidungen, Schnittstellen und Verantwortlichkeiten fest.',
+    },
+    {
+      step: '03',
+      title: 'Umsetzung im Betrieb',
+      text: 'Wir bauen Maßnahmen, Routinen und Nachweise in den Betrieb ein.',
+    },
+    {
+      step: '04',
+      title: 'Stabilisierung und Weiterentwicklung',
+      text: 'Wir prüfen Wirkung, schließen Lücken und schärfen das Setup nach.',
+    },
+  ],
+  featureStories: [
+    {
+      title: 'Profil',
+      lead:
+        'Matthias König verbindet juristische Ausbildung mit Führungsverantwortung in IT, Compliance und Informationssicherheit.',
+      bullets: [
+        'Manager Legal & Compliance in internationalem IT-Umfeld',
+        'Interim-CISO mit Verantwortung für Informationssicherheit',
+        'ESG-Programme und ISO-Zertifizierungen aufgebaut',
+      ],
+      frame: {
+        eyebrow: 'Leadership Lens',
+        headline: 'Legal x Compliance x IT',
+        caption: 'Recht, Compliance und IT greifen in einer Verantwortung zusammen.',
+      },
+    },
+    {
+      title: 'Erfahrung',
+      lead:
+        'Er kennt Strategie, Aufbau und Umsetzung aus der Konzernpraxis.',
+      bullets: [
+        '10+ Jahre Konzern: Legal, Compliance, IT-Governance, CISO',
+        'ISO 27001, ISO 9001, ISO 14001: Implementierung und Audits',
+        'Service Level Management und ITIL-Implementierung',
+      ],
+      frame: {
+        eyebrow: 'Execution Snapshot',
+        headline: 'Audit-Ready Operations',
+        caption: 'Audits, Rollen und Nachweise greifen im Betrieb ineinander.',
+      },
+    },
+    {
+      title: 'Qualifikationen & Auszeichnungen',
+      lead:
+        'Seine Ausbildung und Auszeichnungen geben Geschäftsführung und IT-Leitung eine belastbare Grundlage für Entscheidungen.',
+      bullets: [
+        'Mag. iur. und M.A. IT-Law and Management',
+        'ITIL v3 Expert und ITIL 4 Managing Professional',
+        'Certified Compliance Officer (Austrian Standards)',
+        'Dozent an Donau-Universität Krems und FH Burgenland',
+        'Legal 500 GC Powerlist: Austria 2022 und 2024',
+      ],
+      frame: {
+        eyebrow: 'Proof Layer',
+        headline: 'Board-Level Credibility',
+        caption: 'Fachliche Tiefe trifft auf Führungserfahrung.',
+      },
+    },
+  ],
+  faq: [
+    {
+      question: 'Für wen ist LexIT der richtige Partner?',
+      answer:
+        'Für Geschäftsführung, IT-Leitung und Compliance-Teams, die Verantwortung klären und Regulierung im Betrieb verankern müssen.',
+    },
+    {
+      question: 'Wie startet ein gemeinsames Projekt?',
+      answer:
+        'Wir starten mit einem Lagebild. Danach priorisieren wir Themen, legen Verantwortung fest und bestimmen den ersten Umsetzungsblock.',
+    },
+    {
+      question: 'Werden nur Konzernstrukturen unterstützt?',
+      answer:
+        'Nein. LexIT arbeitet mit mittelständischen Unternehmen und mit Konzernstrukturen.',
+    },
+    {
+      question: 'In welchen Regionen arbeitet LexIT?',
+      answer:
+        'Der Schwerpunkt liegt auf Österreich und Deutschland, vor Ort und remote.',
+    },
+  ],
+  finalCta: {
+    id: 'kontakt',
+    kicker: 'Nächster Schritt',
+    title: 'Sie brauchen Steuerung statt Dauerreaktion.',
+    text: 'LexIT bringt Erfahrung aus ISO-Zertifizierungen, ESG und IT-Governance in Ihr Vorhaben. Sie gewinnen klare Verantwortung, belastbare Nachweise und ein Management-Setup für Entscheidungen.',
+    note:
+      'Für Geschäftsführung, IT-Leitung und Compliance mit hohem Regulierungsdruck.',
+    primaryCta: { href: '/v2/kontakt', label: 'Vertrauliches Gespräch anfragen' },
+    secondaryCta: { href: '/v2/impressum', label: 'Impressum' },
+  },
+  footer: {
+    company: 'LexIT Executive Governance',
+    location: 'Graz, Steiermark, Österreich',
+    phone: { href: 'tel:+436606088762', label: '+43 660 60 88 762' },
+    legalLinks: [
+      { href: '/v2/impressum', label: 'Impressum' },
+      { href: '/v2/datenschutz', label: 'Datenschutz' },
+    ],
+    copyright: '© LexIT Executive Governance',
+  },
+};
+
+const logoForSurface = (surface: Surface) =>
+  surface === 'dark' ? content.nav.brand.logos.lightOnDark : content.nav.brand.logos.darkOnLight;
+
+const heroLogo = logoForSurface(content.hero.logoSurface);
+const heroWords = content.hero.title.split(' ');
+---
+
+<BaseLayout title={content.meta.title} description={content.meta.description}>
+  <main class="v2-page" id="top">
+    <div class="v2-hero-bg" aria-hidden="true">
+      <div class="v2-geometric-shape" style="--shape-width: 600px; --shape-height: 140px; --shape-delay: 0.2s; --shape-rotate: 12deg; --shape-color: rgba(99, 102, 241, 0.3); left: -8%; top: 12%;">
+        <span class="v2-geometric-shape-core"></span>
+      </div>
+      <div class="v2-geometric-shape" style="--shape-width: 500px; --shape-height: 120px; --shape-delay: 0.45s; --shape-rotate: -15deg; --shape-color: rgba(244, 63, 94, 0.28); right: -4%; top: 68%;">
+        <span class="v2-geometric-shape-core"></span>
+      </div>
+      <div class="v2-geometric-shape" style="--shape-width: 340px; --shape-height: 82px; --shape-delay: 0.35s; --shape-rotate: -8deg; --shape-color: rgba(139, 92, 246, 0.26); left: 4%; bottom: 7%;">
+        <span class="v2-geometric-shape-core"></span>
+      </div>
+      <div class="v2-geometric-shape" style="--shape-width: 220px; --shape-height: 62px; --shape-delay: 0.55s; --shape-rotate: 20deg; --shape-color: rgba(245, 158, 11, 0.24); right: 18%; top: 14%;">
+        <span class="v2-geometric-shape-core"></span>
+      </div>
+      <div class="v2-geometric-shape" style="--shape-width: 160px; --shape-height: 44px; --shape-delay: 0.7s; --shape-rotate: -25deg; --shape-color: rgba(6, 182, 212, 0.24); left: 20%; top: 8%;">
+        <span class="v2-geometric-shape-core"></span>
+      </div>
+    </div>
+
+    <header class="v2-nav-wrap" data-reveal>
+      <nav class="v2-nav" aria-label={content.nav.ariaLabel}>
+        <a href={content.nav.brand.href} class="v2-brand-link" aria-label={content.nav.brand.srLabel}>
+          <img
+            src="/lexit_ExG_logo_only_white.png"
+            alt={content.nav.brand.alt}
+            width="6833"
+            height="2878"
+            class="v2-nav-logo"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
+
+        <ul class="v2-nav-links">
+          {content.nav.links.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+
+        <a class="v2-btn v2-btn-solid v2-nav-cta" href={content.nav.cta.href}>
+          {content.nav.cta.label}
+        </a>
+      </nav>
+    </header>
+
+    <section id={content.hero.id} class="v2-hero">
+      <div class="v2-shell v2-hero-inner">
+        <div class="v2-hero-copy" data-reveal>
+          <p class="v2-kicker">{content.hero.kicker}</p>
+
+          <h1 class="v2-hero-title" aria-label={content.hero.title}>
+            {heroWords.map((word, index) => (
+              <span class={`v2-hero-word v2-word-${(index % 10) + 1}`}>{word}</span>
+            ))}
+          </h1>
+
+          <p class="v2-hero-lead">{content.hero.description}</p>
+
+          <div class="v2-hero-actions">
+            <a href={content.hero.primaryCta.href} class="v2-btn v2-btn-solid">
+              {content.hero.primaryCta.label}
+            </a>
+            <a href={content.hero.secondaryCta.href} class="v2-btn v2-btn-ghost">
+              {content.hero.secondaryCta.label}
+            </a>
+          </div>
+
+          <ul class="v2-chip-list">
+            {content.hero.trustChips.map((chip) => (
+              <li class="v2-chip">{chip}</li>
+            ))}
+          </ul>
+        </div>
+
+        <aside class="v2-hero-visual" aria-hidden="true" data-reveal>
+          <div class="v2-logo-fluid">
+            <div class="v2-logo-orb">
+              <img
+                src={heroLogo}
+                alt={content.hero.logoAlt}
+                width="1640"
+                height="701"
+                class="v2-hero-logo"
+                loading="eager"
+                decoding="async"
+              />
+              <span class="v2-orbit v2-orbit-a"></span>
+              <span class="v2-orbit v2-orbit-b"></span>
+              <span class="v2-orbit v2-orbit-c"></span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <section id={content.sectionHeaders.problems.id} class="v2-section">
+      <div class="v2-shell">
+        <header class="v2-section-head" data-reveal>
+          <p class="v2-kicker">{content.sectionHeaders.problems.kicker}</p>
+          <h2>{content.sectionHeaders.problems.title}</h2>
+          <p>{content.sectionHeaders.problems.text}</p>
+        </header>
+
+        <div class="v2-grid v2-grid-3">
+          {content.problemCards.map((card) => (
+            <article class="v2-card v2-problem-card" data-reveal>
+              <p class="v2-card-tag">{card.tag}</p>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+              <p class="v2-impact">{card.impact}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id={content.sectionHeaders.solutions.id} class="v2-section v2-section-tint">
+      <div class="v2-shell">
+        <header class="v2-section-head" data-reveal>
+          <p class="v2-kicker">{content.sectionHeaders.solutions.kicker}</p>
+          <h2>{content.sectionHeaders.solutions.title}</h2>
+          <p>{content.sectionHeaders.solutions.text}</p>
+        </header>
+
+        <div class="v2-grid v2-grid-3">
+          {content.solutionCards.map((card) => (
+            <article class="v2-card v2-solution-card" data-reveal>
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+              <ul>
+                {card.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+              <a href={card.href} class="v2-inline-link">
+                {card.linkLabel}
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id={content.sectionHeaders.process.id} class="v2-section">
+      <div class="v2-shell">
+        <header class="v2-section-head" data-reveal>
+          <p class="v2-kicker">{content.sectionHeaders.process.kicker}</p>
+          <h2>{content.sectionHeaders.process.title}</h2>
+          <p>{content.sectionHeaders.process.text}</p>
+        </header>
+
+        <ol class="v2-steps">
+          {content.howSteps.map((step) => (
+            <li class="v2-step" data-reveal>
+              <p class="v2-step-no">{step.step}</p>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section id={content.sectionHeaders.stories.id} class="v2-section v2-section-tint">
+      <div class="v2-shell">
+        <header class="v2-section-head" data-reveal>
+          <p class="v2-kicker">{content.sectionHeaders.stories.kicker}</p>
+          <h2>{content.sectionHeaders.stories.title}</h2>
+          <p>{content.sectionHeaders.stories.text}</p>
+        </header>
+
+        <div class="v2-story-list">
+          {content.featureStories.map((story) => (
+            <article class="v2-story" data-reveal>
+              <div class="v2-story-frame" aria-hidden="true">
+                <p class="v2-frame-eyebrow">{story.frame.eyebrow}</p>
+                <h3 class="v2-frame-headline">{story.frame.headline}</h3>
+                <p class="v2-frame-caption">{story.frame.caption}</p>
+              </div>
+
+              <div class="v2-story-copy">
+                <h3>{story.title}</h3>
+                <p class="v2-story-lead">{story.lead}</p>
+                <ul>
+                  {story.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id={content.sectionHeaders.faq.id} class="v2-section">
+      <div class="v2-shell v2-faq-shell">
+        <header class="v2-section-head" data-reveal>
+          <p class="v2-kicker">{content.sectionHeaders.faq.kicker}</p>
+          <h2>{content.sectionHeaders.faq.title}</h2>
+          <p>{content.sectionHeaders.faq.text}</p>
+        </header>
+
+        <div class="v2-faq-list">
+          {content.faq.map((item, index) => (
+            <details class="v2-faq-item" open={index === 0} data-reveal>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id={content.finalCta.id} class="v2-section v2-final">
+      <div class="v2-shell">
+        <article class="v2-final-card" data-reveal>
+          <p class="v2-kicker">{content.finalCta.kicker}</p>
+          <h2>{content.finalCta.title}</h2>
+          <p class="v2-final-text">{content.finalCta.text}</p>
+          <p class="v2-final-note">{content.finalCta.note}</p>
+          <div class="v2-hero-actions">
+            <a href={content.finalCta.primaryCta.href} class="v2-btn v2-btn-solid">
+              {content.finalCta.primaryCta.label}
+            </a>
+            <a href={content.finalCta.secondaryCta.href} class="v2-btn v2-btn-ghost">
+              {content.finalCta.secondaryCta.label}
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="v2-footer">
+      <div class="v2-shell v2-footer-grid">
+        <div class="v2-footer-block" data-reveal>
+          <img
+            src={content.nav.brand.logos.lightOnDark}
+            alt={content.nav.brand.alt}
+            width="1640"
+            height="701"
+            class="v2-footer-logo"
+            loading="lazy"
+            decoding="async"
+          />
+          <p>{content.footer.company}</p>
+          <p>{content.footer.location}</p>
+        </div>
+
+        <div class="v2-footer-block" data-reveal>
+          <a class="v2-inline-link" href={content.footer.phone.href}>
+            {content.footer.phone.label}
+          </a>
+          <nav aria-label="Rechtliches">
+            <ul class="v2-footer-legal">
+              {content.footer.legalLinks.map((item) => (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <p>{content.footer.copyright}</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const validPresets = new Set(['ultra', 'balanced', 'showcase']);
+    const params = new URLSearchParams(window.location.search);
+    const urlPreset = params.get('motion');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const applyMotionPreset = () => {
+      if (reducedMotion.matches) {
+        root.dataset.motion = 'ultra';
+        return;
+      }
+      root.dataset.motion = validPresets.has(urlPreset || '') ? urlPreset : 'balanced';
+    };
+
+    applyMotionPreset();
+
+    if (typeof reducedMotion.addEventListener === 'function') {
+      reducedMotion.addEventListener('change', applyMotionPreset);
+    }
+
+    const heroFluid = document.querySelector('.v2-logo-fluid');
+    let wobbleOffset = 0;
+    let wobbleVelocity = 0;
+    let wobbleRaf = 0;
+    let lastScrollY = window.scrollY;
+
+    const resetHeroWobble = () => {
+      wobbleOffset = 0;
+      wobbleVelocity = 0;
+
+      if (wobbleRaf) {
+        cancelAnimationFrame(wobbleRaf);
+        wobbleRaf = 0;
+      }
+
+      if (heroFluid instanceof HTMLElement) {
+        heroFluid.style.setProperty('--hero-scroll-bob', '0px');
+      }
+    };
+
+    const runHeroWobble = () => {
+      const spring = 0.025;
+      const damping = 0.85;
+
+      wobbleVelocity += -wobbleOffset * spring;
+      wobbleOffset += wobbleVelocity;
+      wobbleVelocity *= damping;
+
+      if (heroFluid instanceof HTMLElement) {
+        heroFluid.style.setProperty('--hero-scroll-bob', `${wobbleOffset.toFixed(2)}px`);
+      }
+
+      const motionSettled = Math.abs(wobbleOffset) < 0.06 && Math.abs(wobbleVelocity) < 0.06;
+      if (motionSettled) {
+        resetHeroWobble();
+        return;
+      }
+
+      wobbleRaf = requestAnimationFrame(runHeroWobble);
+    };
+
+    const nudgeHeroWobble = () => {
+      if (!(heroFluid instanceof HTMLElement) || reducedMotion.matches) {
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+
+      const impulse = Math.max(Math.min(scrollDelta * 0.24, 8), -8);
+      wobbleVelocity += impulse;
+
+      if (!wobbleRaf) {
+        wobbleRaf = requestAnimationFrame(runHeroWobble);
+      }
+    };
+
+    const heroSection = document.querySelector('.v2-hero');
+    const heroBg = document.querySelector('.v2-hero-bg');
+    const heroShapes = [...document.querySelectorAll('.v2-geometric-shape')];
+    const shapeProfiles = heroShapes.map((shape, index) => ({
+      shape,
+      seedX: 0.21 + Math.random() * 0.42,
+      seedY: 0.37 + Math.random() * 0.5,
+      seedR: 0.13 + Math.random() * 0.41,
+      ampX: 2.8 + Math.random() * 3.2,
+      ampY: 2.0 + Math.random() * 2.9,
+      ampR: 0.22 + Math.random() * 0.58,
+      phase: index * 0.83,
+      baseRotate: parseFloat(getComputedStyle(shape).getPropertyValue('--shape-rotate')) || 0,
+    }));
+    let heroDriftRaf = 0;
+    let heroScrollState = window.scrollY;
+    let heroShapeLag = 0;
+
+    const setShapeFloat = () => {
+      if (reducedMotion.matches || !heroSection) {
+        return;
+      }
+
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroHeight = Math.max(heroSection.offsetHeight, 1);
+      const sectionOffset = Math.max(-24, Math.min(24, ((-heroRect.top) / heroHeight - 0.5) * 32));
+      heroShapeLag += (sectionOffset - heroShapeLag) * 0.16;
+      const currentScroll = window.scrollY;
+      const scrollDelta = currentScroll - heroScrollState;
+      heroScrollState = currentScroll;
+      if (Math.abs(scrollDelta) > 0.2) {
+        heroShapeLag = Math.max(-24, Math.min(24, heroShapeLag + scrollDelta * 0.06));
+      }
+      const bgOffset = (heroShapeLag * 0.35).toFixed(2);
+      const t = performance.now() / 1000;
+
+      if (heroBg instanceof HTMLElement) {
+        heroBg.style.setProperty('--hero-bg-scroll', `${bgOffset}px`);
+      }
+
+      shapeProfiles.forEach((entry, index) => {
+        const waveX = Math.sin(t * entry.seedX + entry.phase) * entry.ampX + Math.sin(t * (entry.seedX * 2.9) + entry.phase * 2) * 0.8;
+        const waveY = Math.cos(t * entry.seedY + entry.phase * 1.2) * entry.ampY + Math.cos(t * (entry.seedY * 2.1) + 1.9) * 0.7;
+        const waveR = Math.sin(t * entry.seedR + entry.phase * 1.1) * entry.ampR;
+
+        if (entry.shape instanceof HTMLElement) {
+          const lagOffset = (heroShapeLag * (0.88 - index * 0.08)).toFixed(2);
+          entry.shape.style.setProperty('--shape-parallax-y', `${lagOffset}px`);
+          entry.shape.style.setProperty('--shape-scroll-offset', `${(heroShapeLag * 0.2).toFixed(2)}px`);
+          entry.shape.style.setProperty('--shape-jitter-x', `${waveX.toFixed(2)}px`);
+          entry.shape.style.setProperty('--shape-jitter-y', `${waveY.toFixed(2)}px`);
+          entry.shape.style.setProperty('--shape-jitter-rotate', `${(waveR + entry.baseRotate).toFixed(3)}deg`);
+        }
+      });
+    };
+
+    const stepShapeDrift = () => {
+      setShapeFloat();
+      heroDriftRaf = requestAnimationFrame(stepShapeDrift);
+    };
+
+    const startHeroShapeDrift = () => {
+      if (reducedMotion.matches || heroDriftRaf) {
+        return;
+      }
+      heroDriftRaf = requestAnimationFrame(stepShapeDrift);
+    };
+
+    const stopHeroShapeDrift = () => {
+      if (heroDriftRaf) {
+        cancelAnimationFrame(heroDriftRaf);
+        heroDriftRaf = 0;
+      }
+    };
+
+    const cardOrbitTargets = [...document.querySelectorAll('.v2-card')];
+    const cardOrbitSpeed = 1.08;
+    const cardHoverOrbitDuration = 940;
+    const cardRowTopTolerance = 14;
+    let cardOrbitRows = [];
+    const cardHoverOrbitRaf = new WeakMap();
+
+    const getCardOrbitPoint = (width, height, progress) => {
+      const perimeter = width * 2 + height * 2;
+
+      if (!width || !height || !perimeter) {
+        return { x: width / 2 || 0, y: height || 0 };
+      }
+
+      const loopedProgress = ((progress % 1) + 1) % 1;
+      let distance = loopedProgress * perimeter;
+      let x = width / 2;
+      let y = height;
+
+      if (distance <= width / 2) {
+        x = width / 2 - distance;
+      } else if (distance <= width / 2 + height) {
+        distance -= width / 2;
+        x = 0;
+        y = height - distance;
+      } else if (distance <= width / 2 + height + width) {
+        distance -= width / 2 + height;
+        x = distance;
+        y = 0;
+      } else if (distance <= width / 2 + height + width + height) {
+        distance -= width / 2 + height + width;
+        x = width;
+        y = distance;
+      } else {
+        distance -= width / 2 + height + width + height;
+        x = width - distance;
+        y = height;
+      }
+
+      return { x, y };
+    };
+
+    const buildCardOrbitRows = () => {
+      if (!cardOrbitTargets.length) {
+        cardOrbitRows = [];
+        return;
+      }
+
+      const nextRows = [];
+      const currentScrollY = window.scrollY;
+
+      cardOrbitTargets.forEach((card) => {
+        if (!(card instanceof HTMLElement)) {
+          return;
+        }
+
+        const rect = card.getBoundingClientRect();
+        const top = rect.top + currentScrollY;
+        const bottom = top + rect.height;
+
+        let row = nextRows.find((entry) => Math.abs(entry.top - top) <= cardRowTopTolerance);
+
+        if (!row) {
+          row = { top, bottom, cards: [] };
+          nextRows.push(row);
+        } else {
+          row.top = Math.min(row.top, top);
+          row.bottom = Math.max(row.bottom, bottom);
+        }
+
+        row.cards.push(card);
+      });
+
+      cardOrbitRows = nextRows.sort((a, b) => a.top - b.top);
+    };
+
+    const setCardOrbitPosition = (card, x, y, progress) => {
+      card.style.setProperty('--card-orbit-x', `${x.toFixed(2)}%`);
+      card.style.setProperty('--card-orbit-y', `${y.toFixed(2)}%`);
+      card.style.setProperty('--card-orbit-progress', progress.toFixed(4));
+      // Align conic sweep origin with the perimeter path origin (bottom center).
+      card.style.setProperty('--card-orbit-angle', `${(progress * 360 + 180).toFixed(2)}deg`);
+    };
+
+    const resetCardOrbits = () => {
+      cardOrbitTargets.forEach((card) => {
+        if (card instanceof HTMLElement) {
+          setCardOrbitPosition(card, 50, 100, 0);
+          card.style.setProperty('--card-hover-sweep', '0deg');
+        }
+      });
+    };
+
+    const stopCardHoverOrbit = (card) => {
+      const hoverRaf = cardHoverOrbitRaf.get(card);
+      if (hoverRaf) {
+        cancelAnimationFrame(hoverRaf);
+        cardHoverOrbitRaf.delete(card);
+      }
+
+      if (card instanceof HTMLElement) {
+        card.style.setProperty('--card-hover-sweep', '0deg');
+      }
+    };
+
+    const startCardHoverOrbit = (card) => {
+      if (!(card instanceof HTMLElement) || reducedMotion.matches) {
+        return;
+      }
+
+      stopCardHoverOrbit(card);
+
+      const startTime = performance.now();
+      card.style.setProperty('--card-hover-sweep', '12deg');
+
+      const stepHoverOrbit = (now) => {
+        const elapsed = now - startTime;
+        const timelineProgress = Math.min(elapsed / cardHoverOrbitDuration, 1);
+        const eased = timelineProgress < 0.5
+          ? 2 * timelineProgress * timelineProgress
+          : 1 - Math.pow(-2 * timelineProgress + 2, 2) / 2;
+        const sweep = 12 + eased * 348;
+
+        card.style.setProperty('--card-hover-sweep', `${Math.min(sweep, 360).toFixed(2)}deg`);
+
+        if (timelineProgress < 1 && card.matches(':hover, :focus-within')) {
+          const nextFrame = requestAnimationFrame(stepHoverOrbit);
+          cardHoverOrbitRaf.set(card, nextFrame);
+          return;
+        }
+
+        if (card.matches(':hover, :focus-within')) {
+          card.style.setProperty('--card-hover-sweep', '360deg');
+          cardHoverOrbitRaf.delete(card);
+          return;
+        }
+
+        stopCardHoverOrbit(card);
+      };
+
+      const firstFrame = requestAnimationFrame(stepHoverOrbit);
+      cardHoverOrbitRaf.set(card, firstFrame);
+    };
+
+    const syncCardOrbits = () => {
+      if (!cardOrbitTargets.length) {
+        return;
+      }
+
+      if (reducedMotion.matches) {
+        resetCardOrbits();
+        return;
+      }
+
+      if (!cardOrbitRows.length) {
+        buildCardOrbitRows();
+      }
+
+      const viewportHeight = window.innerHeight;
+
+      cardOrbitRows.forEach((row) => {
+        const rowStart = row.top - viewportHeight * 0.88;
+        const rowEnd = row.bottom - viewportHeight * 0.2;
+        const rowWindow = Math.max(rowEnd - rowStart, 1);
+        const rowBaseProgress = Math.min(Math.max((window.scrollY - rowStart) / rowWindow, 0), 1);
+        const rowProgress = Math.min(rowBaseProgress * cardOrbitSpeed, 1);
+
+        row.cards.forEach((card) => {
+          if (!(card instanceof HTMLElement)) {
+            return;
+          }
+
+          const width = card.offsetWidth;
+          const height = card.offsetHeight;
+          if (!width || !height) {
+            setCardOrbitPosition(card, 50, 100, rowProgress);
+            return;
+          }
+
+          const { x, y } = getCardOrbitPoint(width, height, rowProgress);
+          setCardOrbitPosition(card, (x / width) * 100, (y / height) * 100, rowProgress);
+        });
+      });
+    };
+
+    cardOrbitTargets.forEach((card) => {
+      if (!(card instanceof HTMLElement)) {
+        return;
+      }
+
+      card.addEventListener('pointerenter', () => startCardHoverOrbit(card));
+      card.addEventListener('focusin', () => startCardHoverOrbit(card));
+      card.addEventListener('pointerleave', () => stopCardHoverOrbit(card));
+      card.addEventListener('focusout', () => {
+        if (!card.matches(':focus-within')) {
+          stopCardHoverOrbit(card);
+        }
+      });
+    });
+
+    const revealTargets = [...document.querySelectorAll('[data-reveal]')];
+
+      if (reducedMotion.matches) {
+        revealTargets.forEach((node) => node.classList.add('is-visible'));
+        stopHeroShapeDrift();
+      } else {
+        startHeroShapeDrift();
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.22,
+          rootMargin: '0px 0px -10% 0px',
+        },
+      );
+
+      revealTargets.forEach((node) => revealObserver.observe(node));
+    }
+
+    const syncHeroState = () => {
+      const threshold = Math.min(window.innerHeight * 0.35, 300);
+      document.body.classList.toggle('v2-hero-collapsed', window.scrollY > threshold);
+    };
+
+    const onScroll = () => {
+      syncHeroState();
+      nudgeHeroWobble();
+      syncCardOrbits();
+    };
+
+    startHeroShapeDrift();
+    buildCardOrbitRows();
+    syncHeroState();
+    syncCardOrbits();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      buildCardOrbitRows();
+      syncHeroState();
+      syncCardOrbits();
+    });
+
+    if (typeof reducedMotion.addEventListener === 'function') {
+      reducedMotion.addEventListener('change', () => {
+        if (reducedMotion.matches) {
+          resetHeroWobble();
+          cardOrbitTargets.forEach((card) => stopCardHoverOrbit(card));
+          stopHeroShapeDrift();
+          if (heroBg instanceof HTMLElement) {
+            heroBg.style.removeProperty('--hero-bg-scroll');
+          }
+          if (heroShapes.length) {
+            heroShapes.forEach((shape) => {
+              if (shape instanceof HTMLElement) {
+                shape.style.removeProperty('--shape-scroll-offset');
+                shape.style.removeProperty('--shape-parallax-y');
+                shape.style.removeProperty('--shape-jitter-x');
+                shape.style.removeProperty('--shape-jitter-y');
+                shape.style.removeProperty('--shape-jitter-rotate');
+              }
+            });
+          }
+          heroShapeLag = 0;
+        } else {
+          startHeroShapeDrift();
+        }
+
+        syncCardOrbits();
+      });
+    }
+  </script>
+</BaseLayout>
+
+<style is:global>
+  :root {
+    --bg-void: #0b1220;
+    --bg-elevated: #13223a;
+    --text-main: #f4f5f8;
+    --text-sub: #c7d0e2;
+    --accent: #e07a2f;
+    --trust-blue: #1f3a5f;
+
+    --surface-glass: rgba(16, 30, 52, 0.64);
+    --surface-border: rgba(200, 214, 236, 0.22);
+    --surface-line: rgba(110, 138, 178, 0.4);
+
+    --font-main: 'IBM Plex Sans', system-ui, sans-serif;
+
+    --fluid-hero: clamp(2.3rem, 7vw, 5.8rem);
+    --fluid-h2: clamp(1.65rem, 3.6vw, 3.15rem);
+    --fluid-h3: clamp(1.15rem, 2.1vw, 1.55rem);
+    --fluid-body: clamp(1rem, 1.08vw, 1.12rem);
+    --fluid-kicker: clamp(0.72rem, 0.8vw, 0.86rem);
+
+    --motion-rate: 1;
+    --motion-amp: 1;
+    --motion-lift: 1;
+    --motion-glow: 1;
+
+    --content-width: 1180px;
+    --radius-card: 1.35rem;
+  }
+
+  :root[data-motion='ultra'] {
+    --motion-rate: 0.8;
+    --motion-amp: 0.72;
+    --motion-lift: 0.74;
+    --motion-glow: 0.88;
+  }
+
+  :root[data-motion='balanced'] {
+    --motion-rate: 1;
+    --motion-amp: 1;
+    --motion-lift: 1;
+    --motion-glow: 1;
+  }
+
+  :root[data-motion='showcase'] {
+    --motion-rate: 1.25;
+    --motion-amp: 1.3;
+    --motion-lift: 1.24;
+    --motion-glow: 1.35;
+  }
+
+  .v2-page {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    color: var(--text-main);
+    font-family: var(--font-main);
+    background:
+      radial-gradient(140% 80% at 50% -10%, rgba(31, 58, 95, 0.35), transparent 60%),
+      radial-gradient(90% 70% at 85% 25%, rgba(224, 122, 47, 0.11), transparent 72%),
+      linear-gradient(180deg, #0b1220 0%, #0a101b 48%, #090f18 100%);
+  }
+
+  .v2-page > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-page::before,
+  .v2-page::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .v2-page::before {
+    opacity: 0.16;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 75%);
+  }
+
+  .v2-page::after {
+    opacity: 0.18;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.38'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
+  }
+
+  .v2-shell {
+    width: min(var(--content-width), calc(100% - clamp(1.6rem, 6vw, 5rem)));
+    margin-inline: auto;
+  }
+
+  .v2-nav-wrap {
+    position: sticky;
+    top: 0.95rem;
+    z-index: 70;
+    padding-top: 0.95rem;
+    pointer-events: none;
+  }
+
+  .v2-nav {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(calc(var(--content-width) + 1.2rem), calc(100% - 1.2rem));
+    margin-inline: auto;
+    padding: 0.7rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid var(--surface-border);
+    background: var(--surface-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      0 20px 40px rgba(1, 4, 10, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .v2-brand-link {
+    position: relative;
+    flex-shrink: 0;
+    width: clamp(8.8rem, 15vw, 11.6rem);
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .v2-nav-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: translateY(-5px);
+  }
+
+  .v2-nav-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.7rem, 2vw, 1.35rem);
+  }
+
+  .v2-nav-links a {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color calc(220ms / var(--motion-rate)) ease;
+  }
+
+  .v2-nav-links a:hover,
+  .v2-nav-links a:focus-visible {
+    color: var(--text-main);
+  }
+
+  .v2-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 999px;
+    padding: 0.64rem 1.15rem;
+    border: 1px solid transparent;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition:
+      transform calc(260ms / var(--motion-rate)) cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow calc(260ms / var(--motion-rate)) ease,
+      border-color calc(220ms / var(--motion-rate)) ease,
+      background-color calc(220ms / var(--motion-rate)) ease,
+      color calc(220ms / var(--motion-rate)) ease;
+  }
+
+  .v2-btn:hover,
+  .v2-btn:focus-visible {
+    transform: translateY(calc(-3px * var(--motion-lift)));
+  }
+
+  .v2-btn-solid {
+    color: #fdf8f3;
+    background: linear-gradient(135deg, #e07a2f 0%, #ff9b4c 100%);
+    box-shadow: 0 8px 18px rgba(224, 122, 47, calc(0.33 * var(--motion-glow)));
+  }
+
+  .v2-btn-solid:hover,
+  .v2-btn-solid:focus-visible {
+    box-shadow: 0 12px 28px rgba(224, 122, 47, calc(0.45 * var(--motion-glow)));
+  }
+
+  .v2-btn-ghost {
+    color: var(--text-main);
+    border-color: rgba(199, 208, 226, 0.44);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .v2-btn-ghost:hover,
+  .v2-btn-ghost:focus-visible {
+    border-color: rgba(224, 122, 47, 0.64);
+    background: rgba(224, 122, 47, 0.11);
+  }
+
+  .v2-hero {
+    min-height: 100svh;
+    padding-block: clamp(4.2rem, 10vw, 7.8rem) clamp(2.8rem, 8vw, 6rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .v2-hero-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    --hero-bg-scroll: 0px;
+    mix-blend-mode: normal;
+    transform: translate3d(0, var(--hero-bg-scroll), 0);
+    will-change: transform;
+  }
+
+  .v2-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), transparent 48%, rgba(244, 63, 94, 0.06));
+    filter: blur(42px);
+  }
+
+  .v2-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(3, 3, 3, 0.1) 0%, transparent 46%, rgba(3, 3, 3, 0.18) 100%);
+    pointer-events: none;
+  }
+
+  .v2-geometric-shape {
+    position: absolute;
+    width: var(--shape-width);
+    height: var(--shape-height);
+    --shape-scroll-offset: 0px;
+    --shape-parallax-y: 0px;
+    --shape-jitter-x: 0px;
+    --shape-jitter-y: 0px;
+    --shape-jitter-rotate: 0deg;
+    transform:
+      translate3d(
+        var(--shape-jitter-x),
+        calc(var(--shape-scroll-offset, 0px) + var(--shape-parallax-y, 0px) + var(--shape-jitter-y)),
+        0
+      )
+      rotate(var(--shape-jitter-rotate, 0deg));
+    animation:
+      v2-geometric-shape-in calc(1.8s / var(--motion-rate)) cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards;
+    animation-delay: var(--shape-delay);
+    opacity: 0.93;
+    z-index: 0;
+    will-change: transform, opacity;
+  }
+
+  .v2-geometric-shape-core {
+    position: absolute;
+    inset: 0;
+    display: block;
+    border-radius: 999px;
+    background-image:
+      linear-gradient(to right, var(--shape-color), transparent),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    box-shadow:
+      0 8px 24px 0 rgba(255, 255, 255, 0.12),
+      0 0 24px 0 rgba(255, 255, 255, 0.11);
+    animation:
+      v2-geometric-shape-float calc(12s / var(--motion-rate)) ease-in-out infinite,
+      v2-geometric-shape-shimmer calc(5.4s / var(--motion-rate)) linear infinite;
+    animation-delay: calc(var(--shape-delay) + 0.2s);
+    opacity: 0.85;
+  }
+
+  .v2-hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.4rem, 3vw, 2.3rem);
+    text-align: center;
+  }
+
+  .v2-hero-copy {
+    max-width: 72ch;
+  }
+
+  .v2-hero-title,
+  .v2-section-head h2,
+  .v2-card h3,
+  .v2-step h3,
+  .v2-frame-headline,
+  .v2-story-copy h3,
+  .v2-final-card h2 {
+    font-family: var(--font-sans);
+  }
+
+  .v2-kicker {
+    margin: 0;
+    font-size: var(--fluid-kicker);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+    color: rgba(199, 208, 226, 0.9);
+  }
+
+  .v2-hero-title {
+    margin: 0.82rem 0 1rem;
+    font-size: var(--fluid-hero);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3ch;
+    max-width: 16ch;
+    justify-content: center;
+    margin-inline: auto;
+    text-wrap: balance;
+  }
+
+  .v2-hero-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(calc(28px * var(--motion-amp)));
+    animation: v2-word-rise calc(760ms / var(--motion-rate)) cubic-bezier(0.2, 1, 0.18, 1) forwards;
+  }
+
+  .v2-word-1 {
+    animation-delay: 70ms;
+  }
+
+  .v2-word-2 {
+    animation-delay: 120ms;
+  }
+
+  .v2-word-3 {
+    animation-delay: 170ms;
+  }
+
+  .v2-word-4 {
+    animation-delay: 220ms;
+  }
+
+  .v2-word-5 {
+    animation-delay: 270ms;
+  }
+
+  .v2-word-6 {
+    animation-delay: 320ms;
+  }
+
+  .v2-word-7 {
+    animation-delay: 370ms;
+  }
+
+  .v2-word-8 {
+    animation-delay: 420ms;
+  }
+
+  .v2-word-9 {
+    animation-delay: 470ms;
+  }
+
+  .v2-word-10 {
+    animation-delay: 520ms;
+  }
+
+  .v2-hero-lead {
+    margin: 0;
+    max-width: 58ch;
+    color: var(--text-sub);
+    font-size: var(--fluid-body);
+    line-height: 1.72;
+  }
+
+  .v2-hero-actions {
+    margin-top: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.72rem;
+    justify-content: center;
+  }
+
+  .v2-chip-list {
+    margin: 1.55rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.62rem;
+    justify-content: center;
+  }
+
+  .v2-chip {
+    border-radius: 999px;
+    border: 1px solid rgba(172, 188, 214, 0.32);
+    background: rgba(24, 41, 68, 0.62);
+    color: var(--text-main);
+    padding: 0.5rem 0.78rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+    animation: v2-chip-in calc(780ms / var(--motion-rate)) cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .v2-chip:nth-child(1) {
+    animation-delay: 120ms;
+  }
+
+  .v2-chip:nth-child(2) {
+    animation-delay: 190ms;
+  }
+
+  .v2-chip:nth-child(3) {
+    animation-delay: 260ms;
+  }
+
+  .v2-chip:nth-child(4) {
+    animation-delay: 330ms;
+  }
+
+  .v2-hero-visual {
+    order: -1;
+    display: grid;
+    place-items: center;
+    width: 100%;
+  }
+
+  .v2-logo-fluid {
+    --hero-scroll-bob: 0px;
+    display: grid;
+    place-items: center;
+    width: min(100%, 32rem);
+    margin-inline: auto;
+    transform: translate3d(0, var(--hero-scroll-bob), 0);
+    will-change: transform;
+  }
+
+  .v2-logo-orb {
+    position: relative;
+    width: min(100%, 32rem);
+    aspect-ratio: 1;
+    border-radius: 28%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(157, 181, 214, 0.34);
+    background:
+      radial-gradient(circle at 30% 18%, rgba(224, 122, 47, 0.16), transparent 50%),
+      radial-gradient(circle at 72% 72%, rgba(31, 58, 95, 0.34), transparent 64%),
+      rgba(13, 24, 41, 0.86);
+    box-shadow:
+      0 26px 48px rgba(2, 4, 10, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      0 0 calc(70px * var(--motion-glow)) rgba(31, 58, 95, 0.25);
+    animation: v2-logo-drift calc(12s / var(--motion-rate)) ease-in-out infinite;
+    transition:
+      opacity calc(380ms / var(--motion-rate)) ease,
+      transform calc(380ms / var(--motion-rate)) ease;
+    will-change: transform;
+  }
+
+  body.v2-hero-collapsed .v2-logo-orb {
+    opacity: 0.16;
+    transform: translateY(calc(-44px * var(--motion-amp))) scale(0.84);
+  }
+
+  .v2-hero-logo {
+    width: min(84%, 24rem);
+    height: auto;
+    filter: drop-shadow(0 10px 22px rgba(2, 4, 8, 0.45));
+    animation: v2-hero-float calc(7s / var(--motion-rate)) ease-in-out infinite;
+    will-change: transform;
+    z-index: 2;
+  }
+
+  .v2-orbit {
+    position: absolute;
+    border: 1px solid rgba(172, 195, 228, 0.28);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .v2-orbit-a {
+    width: 108%;
+    height: 108%;
+    animation: v2-spin calc(26s / var(--motion-rate)) linear infinite;
+  }
+
+  .v2-orbit-b {
+    width: 82%;
+    height: 82%;
+    transform: rotate(28deg);
+    border-style: dashed;
+    animation: v2-spin-reverse calc(18s / var(--motion-rate)) linear infinite;
+  }
+
+  .v2-orbit-c {
+    width: 126%;
+    height: 126%;
+    border-color: rgba(224, 122, 47, 0.32);
+    animation: v2-spin calc(36s / var(--motion-rate)) linear infinite;
+  }
+
+  .v2-section {
+    padding-block: clamp(3.5rem, 9vw, 6.7rem);
+  }
+
+  .v2-section-tint {
+    background: linear-gradient(180deg, rgba(19, 34, 58, 0.26) 0%, rgba(19, 34, 58, 0.08) 100%);
+    border-block: 1px solid rgba(142, 163, 197, 0.24);
+  }
+
+  .v2-section-head {
+    margin-bottom: clamp(1.7rem, 4vw, 2.6rem);
+    max-width: 70ch;
+  }
+
+  .v2-section-head h2 {
+    margin: 0.6rem 0 0.84rem;
+    font-size: var(--fluid-h2);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .v2-section-head p {
+    margin: 0;
+    color: var(--text-sub);
+    font-size: var(--fluid-body);
+    line-height: 1.7;
+    max-width: 62ch;
+  }
+
+  .v2-grid {
+    display: grid;
+    gap: clamp(0.95rem, 2.2vw, 1.35rem);
+  }
+
+  .v2-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .v2-card {
+    --card-orbit-x: 50%;
+    --card-orbit-y: 100%;
+    --card-orbit-progress: 0;
+    --card-orbit-angle: 0deg;
+    --card-hover-sweep: 0deg;
+    position: relative;
+    padding: clamp(1.1rem, 2.3vw, 1.45rem);
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(182, 203, 232, 0.2);
+    background:
+      radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.15), transparent 36%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 24%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(165deg, rgba(24, 42, 68, 0.82) 0%, rgba(14, 24, 40, 0.92) 55%, rgba(9, 16, 28, 0.96) 100%);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    box-shadow:
+      0 16px 34px rgba(2, 5, 11, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -18px 32px rgba(5, 10, 18, 0.16);
+    transition:
+      transform calc(340ms / var(--motion-rate)) cubic-bezier(0.2, 1, 0.22, 1),
+      border-color calc(260ms / var(--motion-rate)) ease,
+      box-shadow calc(280ms / var(--motion-rate)) ease,
+      background calc(280ms / var(--motion-rate)) ease;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .v2-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    display: none;
+    pointer-events: none;
+  }
+
+  .v2-card::after {
+    content: '';
+    position: absolute;
+    inset: auto 12% 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(31, 58, 95, 0.06), rgba(224, 122, 47, 0.74), rgba(31, 58, 95, 0.06));
+    opacity: 0.88;
+    transform: translate3d(0, 0, 0);
+    transform-origin: center;
+    transition:
+      opacity calc(240ms / var(--motion-rate)) ease,
+      filter calc(260ms / var(--motion-rate)) ease;
+    filter: blur(0.4px);
+    pointer-events: none;
+  }
+
+  @supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+    .v2-card::before {
+      display: block;
+      padding: 3px;
+      border-radius: inherit;
+      background: conic-gradient(
+        from var(--card-orbit-angle),
+        rgba(255, 214, 168, 0.94) 0deg,
+        rgba(255, 186, 121, 0.98) var(--card-hover-sweep),
+        rgba(255, 160, 94, 0) calc(var(--card-hover-sweep) + 2deg),
+        rgba(255, 160, 94, 0) 360deg
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      filter:
+        blur(0.52px)
+        drop-shadow(0 0 calc(38px * var(--motion-glow)) rgba(255, 186, 120, 0.56))
+        drop-shadow(0 0 calc(62px * var(--motion-glow)) rgba(224, 122, 47, 0.4));
+      transition: filter calc(180ms / var(--motion-rate)) ease;
+      will-change: filter;
+    }
+
+    .v2-card::after {
+      inset: 0;
+      height: auto;
+      padding: 3px;
+      border-radius: inherit;
+      background: radial-gradient(
+        circle 10.4rem at var(--card-orbit-x) var(--card-orbit-y),
+        rgba(255, 214, 170, 0.98) 0%,
+        rgba(255, 181, 118, 0.9) 26%,
+        rgba(255, 154, 87, 0.56) 46%,
+        rgba(224, 122, 47, 0.2) 64%,
+        rgba(224, 122, 47, 0) 86%
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      filter:
+        blur(0.28px)
+        drop-shadow(0 0 calc(30px * var(--motion-glow)) rgba(255, 176, 110, 0.56))
+        drop-shadow(0 0 calc(48px * var(--motion-glow)) rgba(224, 122, 47, 0.4));
+      transition:
+        filter calc(300ms / var(--motion-rate)) ease,
+        opacity calc(220ms / var(--motion-rate)) ease;
+    }
+  }
+
+  .v2-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-card:hover,
+  .v2-card:focus-within {
+    transform: translateY(calc(-8px * var(--motion-lift)));
+    border-color: rgba(239, 154, 88, 0.54);
+    box-shadow:
+      0 22px 44px rgba(1, 6, 12, 0.44),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 -18px 32px rgba(5, 10, 18, 0.18);
+  }
+
+  .v2-card:hover::after,
+  .v2-card:focus-within::after {
+    opacity: 1;
+    filter:
+      blur(0.2px)
+      drop-shadow(0 0 calc(30px * var(--motion-glow)) rgba(255, 170, 99, 0.58))
+      drop-shadow(0 0 calc(46px * var(--motion-glow)) rgba(224, 122, 47, 0.42));
+  }
+
+  .v2-card h3 {
+    margin: 0;
+    font-size: var(--fluid-h3);
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+  }
+
+  .v2-card p {
+    margin: 0.74rem 0 0;
+    color: var(--text-sub);
+    line-height: 1.65;
+    font-size: 0.98rem;
+  }
+
+  .v2-card-tag {
+    margin: 0;
+    display: inline-block;
+    border-radius: 999px;
+    padding: 0.3rem 0.68rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #ffd6b8;
+    background: rgba(224, 122, 47, 0.2);
+  }
+
+  .v2-impact {
+    color: #f8dfcf;
+  }
+
+  .v2-solution-card ul,
+  .v2-story-copy ul {
+    margin: 0.95rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.56rem;
+  }
+
+  .v2-solution-card li,
+  .v2-story-copy li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    line-height: 1.56;
+  }
+
+  .v2-solution-card li::before,
+  .v2-story-copy li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.57rem;
+    width: 0.52rem;
+    height: 0.52rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(224, 122, 47, 0.44);
+  }
+
+  .v2-inline-link {
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    color: #ffd7bc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    transition: color calc(220ms / var(--motion-rate)) ease;
+  }
+
+  .v2-inline-link:hover,
+  .v2-inline-link:focus-visible {
+    color: #ffe9d8;
+  }
+
+  .v2-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.95rem, 2.1vw, 1.2rem);
+  }
+
+  .v2-step {
+    padding: clamp(1rem, 2.2vw, 1.35rem);
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(157, 181, 214, 0.2);
+    background: linear-gradient(180deg, rgba(16, 28, 48, 0.9) 0%, rgba(13, 22, 38, 0.92) 100%);
+    box-shadow: 0 8px 22px rgba(3, 8, 15, 0.34);
+    transition:
+      transform calc(320ms / var(--motion-rate)) cubic-bezier(0.2, 1, 0.22, 1),
+      border-color calc(260ms / var(--motion-rate)) ease;
+  }
+
+  .v2-step:hover,
+  .v2-step:focus-within {
+    transform: translateY(calc(-6px * var(--motion-lift)));
+    border-color: rgba(224, 122, 47, 0.5);
+  }
+
+  .v2-step-no {
+    margin: 0;
+    color: #ffd6b6;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .v2-step h3 {
+    margin: 0.52rem 0 0;
+    font-size: 1.15rem;
+  }
+
+  .v2-step p {
+    margin: 0.72rem 0 0;
+    color: var(--text-sub);
+    line-height: 1.6;
+    font-size: 0.96rem;
+  }
+
+  .v2-story-list {
+    display: grid;
+    gap: clamp(0.95rem, 2.2vw, 1.3rem);
+  }
+
+  .v2-story {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1rem, 2.4vw, 1.5rem);
+    padding: clamp(1rem, 2.2vw, 1.3rem);
+    border-radius: calc(var(--radius-card) + 0.25rem);
+    border: 1px solid rgba(157, 181, 214, 0.22);
+    background: linear-gradient(180deg, rgba(14, 24, 41, 0.88) 0%, rgba(10, 18, 31, 0.92) 100%);
+    box-shadow: 0 16px 36px rgba(2, 6, 12, 0.38);
+  }
+
+  .v2-story-frame {
+    position: relative;
+    border-radius: 1rem;
+    min-height: 250px;
+    border: 1px solid rgba(173, 197, 230, 0.23);
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.42rem;
+    padding: 1rem;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(224, 122, 47, 0.35), transparent 45%),
+      radial-gradient(circle at 86% 80%, rgba(31, 58, 95, 0.6), transparent 58%),
+      linear-gradient(160deg, rgba(11, 20, 35, 0.96), rgba(18, 31, 52, 0.94));
+    animation: v2-frame-drift calc(9.8s / var(--motion-rate)) ease-in-out infinite;
+  }
+
+  .v2-story:nth-child(even) .v2-story-frame {
+    animation-duration: calc(12.8s / var(--motion-rate));
+    animation-direction: reverse;
+  }
+
+  .v2-story-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(112deg, transparent 20%, rgba(255, 255, 255, 0.24) 48%, transparent 82%);
+    transform: translateX(-125%);
+    animation: v2-sheen calc(7.6s / var(--motion-rate)) ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .v2-frame-eyebrow {
+    margin: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(249, 212, 182, 0.9);
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-frame-headline {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.18;
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-frame-caption {
+    margin: 0;
+    color: var(--text-sub);
+    font-size: 0.88rem;
+    line-height: 1.52;
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-story-copy h3 {
+    margin: 0;
+    font-size: clamp(1.15rem, 2.4vw, 1.48rem);
+    line-height: 1.22;
+  }
+
+  .v2-story-lead {
+    margin: 0.72rem 0 0;
+    color: var(--text-sub);
+    line-height: 1.66;
+    max-width: 62ch;
+  }
+
+  .v2-faq-shell {
+    display: grid;
+    gap: clamp(1.1rem, 2.6vw, 1.5rem);
+  }
+
+  .v2-faq-list {
+    display: grid;
+    gap: 0.72rem;
+  }
+
+  .v2-faq-item {
+    border-radius: 1rem;
+    border: 1px solid rgba(157, 181, 214, 0.22);
+    background: rgba(14, 24, 41, 0.75);
+    overflow: hidden;
+  }
+
+  .v2-faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 1.1rem;
+    font-weight: 600;
+    line-height: 1.45;
+    position: relative;
+    color: var(--text-main);
+  }
+
+  .v2-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .v2-faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.14rem;
+    transition: transform calc(240ms / var(--motion-rate)) ease;
+  }
+
+  .v2-faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .v2-faq-item p {
+    margin: 0;
+    padding: 0 1.1rem 1rem;
+    color: var(--text-sub);
+    line-height: 1.65;
+  }
+
+  .v2-final {
+    padding-top: clamp(2.8rem, 7vw, 5.2rem);
+  }
+
+  .v2-final-card {
+    border-radius: calc(var(--radius-card) + 0.6rem);
+    border: 1px solid rgba(224, 122, 47, 0.34);
+    padding: clamp(1.35rem, 3vw, 2.3rem);
+    background:
+      radial-gradient(circle at 85% 15%, rgba(224, 122, 47, 0.28), transparent 45%),
+      linear-gradient(150deg, rgba(15, 28, 46, 0.95), rgba(11, 19, 33, 0.98));
+    box-shadow:
+      0 20px 46px rgba(2, 6, 12, 0.4),
+      0 0 calc(56px * var(--motion-glow)) rgba(224, 122, 47, 0.2);
+  }
+
+  .v2-final-card h2 {
+    margin: 0.6rem 0 0;
+    font-size: clamp(1.6rem, 4.5vw, 2.85rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .v2-final-text,
+  .v2-final-note {
+    margin: 0.9rem 0 0;
+    color: var(--text-sub);
+    line-height: 1.7;
+    max-width: 68ch;
+  }
+
+  .v2-final-note {
+    color: rgba(247, 224, 206, 0.9);
+    font-size: 0.95rem;
+  }
+
+  .v2-footer {
+    padding-block: clamp(2.6rem, 7vw, 4.2rem) clamp(2.4rem, 6.5vw, 3.5rem);
+  }
+
+  .v2-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.1rem, 2.4vw, 1.6rem);
+    border-top: 1px solid rgba(157, 181, 214, 0.22);
+    padding-top: clamp(1.2rem, 2.6vw, 1.9rem);
+  }
+
+  .v2-footer-block {
+    display: grid;
+    gap: 0.42rem;
+  }
+
+  .v2-footer-logo {
+    width: clamp(9.6rem, 18vw, 12rem);
+    height: auto;
+    margin-bottom: 0.35rem;
+  }
+
+  .v2-footer-block p,
+  .v2-footer-block a {
+    margin: 0;
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .v2-footer-legal {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.68rem;
+  }
+
+  .v2-footer-legal a,
+  .v2-footer-block a:hover,
+  .v2-footer-block a:focus-visible {
+    color: var(--text-main);
+  }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(calc(26px * var(--motion-amp)));
+    filter: blur(6px);
+    transition:
+      opacity calc(640ms / var(--motion-rate)) ease,
+      transform calc(720ms / var(--motion-rate)) cubic-bezier(0.2, 1, 0.22, 1),
+      filter calc(640ms / var(--motion-rate)) ease;
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  @keyframes v2-geometric-shape-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes v2-geometric-shape-float {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-18px) scale(1.01);
+    }
+  }
+
+  @keyframes v2-geometric-shape-shimmer {
+    0%,
+    100% {
+      opacity: 0.75;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes v2-word-rise {
+    from {
+      opacity: 0;
+      transform: translateY(calc(28px * var(--motion-amp)));
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+    }
+  }
+
+  @keyframes v2-chip-in {
+    from {
+      opacity: 0;
+      transform: translateY(calc(14px * var(--motion-amp)));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes v2-logo-drift {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(calc(-12px * var(--motion-amp))) rotate(0.55deg);
+    }
+  }
+
+  @keyframes v2-hero-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(calc(-10px * var(--motion-amp)));
+    }
+  }
+
+  @keyframes v2-sheen {
+    0% {
+      transform: translateX(-125%);
+    }
+    48%,
+    100% {
+      transform: translateX(125%);
+    }
+  }
+
+  @keyframes v2-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes v2-spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes v2-frame-drift {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(calc(7px * var(--motion-amp)), calc(-5px * var(--motion-amp)), 0);
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .v2-grid-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .v2-story {
+      grid-template-columns: 1fr;
+    }
+
+    .v2-story-frame {
+      min-height: 220px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .v2-logo-orb {
+      width: min(100%, 22rem);
+    }
+
+    .v2-nav-links {
+      display: none;
+    }
+
+    .v2-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .v2-nav {
+      padding: 0.62rem 0.72rem;
+      width: calc(100% - 0.9rem);
+    }
+
+    .v2-brand-link {
+      width: 9rem;
+    }
+
+    .v2-nav-cta {
+      padding-inline: 0.92rem;
+      font-size: 0.84rem;
+    }
+
+    .v2-grid-3,
+    .v2-footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .v2-hero {
+      padding-top: 3.8rem;
+    }
+
+    .v2-chip-list {
+      gap: 0.52rem;
+    }
+
+    .v2-chip {
+      font-size: 0.76rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --motion-rate: 0.7;
+      --motion-amp: 0;
+      --motion-lift: 0;
+      --motion-glow: 1;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    body.v2-hero-collapsed .v2-logo-orb {
+      transform: none;
+      opacity: 1;
+    }
+
+    .v2-logo-fluid {
+      transform: none;
+    }
+
+  }
+</style>

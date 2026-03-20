@@ -1,0 +1,207 @@
+---
+import V2BaseLayout from '../../../layouts/V2BaseLayout.astro';
+
+const content = {
+  meta: {
+    title: 'IT-Governance | LexIT V2',
+    description:
+      'Executive IT-Governance mit klaren Entscheidungswegen, Risikosteuerung und Reporting für die Unternehmensleitung.',
+  },
+  hero: {
+    kicker: 'Leistungen',
+    title: 'IT-Governance',
+    lead:
+      'LexIT ordnet Rollen, Risiken und Kennzahlen, damit Ihre IT auf Leitungsebene steuerbar wird.',
+  },
+  intro: [
+    {
+      title: 'Steuerungsdefizit',
+      paragraphs: [
+        'IT bleibt oft teuer und schwer steuerbar. Budget fließt, Prioritäten wechseln, Risiken tauchen zu spät auf.',
+        'Wenn Zuständigkeiten unklar bleiben, stocken Entscheidungen und Maßnahmen.',
+        'Frameworks wie COBIT oder ITIL helfen erst, wenn jemand sie in Ihre Führungsstruktur übersetzt.',
+      ],
+    },
+    {
+      title: 'Mandatsansatz',
+      paragraphs: [
+        'LexIT baut Governance auf drei Bausteinen auf: Rollen, Entscheidungen, Kennzahlen.',
+        'Wir übersetzen Frameworks in eine Struktur, die Geschäftsführung und IT-Leitung nutzen können.',
+      ],
+    },
+  ],
+  focusAreas: [
+    {
+      title: 'Rollen und Verantwortlichkeiten',
+      text: 'Klare Entscheidungspfade und Zuständigkeiten senken Reibung und sichern Führung.',
+      result: 'RACI-Matrizen, Rollenprofile, Eskalationspfade, Governance-Organigramm.',
+    },
+    {
+      title: 'IT-Risikomanagement',
+      text: 'Sie sehen Risiken, bewerten sie einheitlich und überführen sie in Maßnahmen.',
+      result: 'Risikoregister, Bewertungsmethodik, Maßnahmentracking, Review-Rhythmus.',
+    },
+    {
+      title: 'Kennzahlen und Reporting',
+      text: 'Wenige KPIs geben Geschäftsführung und Fachbereichen ein belastbares Bild.',
+      result: 'KPI-Framework, Dashboards, Management-Reports, Zielsysteme.',
+    },
+    {
+      title: 'IT-Service-Management',
+      text: 'Wir wählen ITIL-Elemente so aus, dass sie zu Ihrem Betrieb passen.',
+      result: 'Prozessdefinitionen, Servicekatalog, SLA-Framework, Continual Improvement.',
+    },
+  ],
+  itil: {
+    title: 'ITIL-Expertise',
+    paragraphs: [
+      'LexIT setzt ITIL dort ein, wo es Führung und Betrieb stärkt: bei SLA, Reporting und Service-Verbesserung.',
+      'Die Methoden kommen aus der Praxis und greifen in Ihrer Struktur.',
+    ],
+    badges: [
+      { src: '/itil-expert.svg', alt: 'ITIL Expert', label: 'ITIL Expert' },
+      { src: '/itil4-managing-professional.svg', alt: 'ITIL 4 Managing Professional', label: 'ITIL 4 Managing Professional' },
+    ],
+    points: [
+      'Fundierte ITIL-Praxis',
+      'Erfahrung in Governance-Prozessen',
+      'Methodische Umsetzung im Tagesgeschäft',
+    ],
+  },
+  deliverables: [
+    {
+      label: '01',
+      title: 'Bestandsaufnahme',
+      text: 'Sie sehen, wo Rollen, Risiken und Steuerung heute auseinanderlaufen.',
+    },
+    {
+      label: '02',
+      title: 'Zielarchitektur',
+      text: 'Sie erhalten ein Zielbild mit Rollenmodell, Entscheidungslogik und Kennzahlenset.',
+    },
+    {
+      label: '03',
+      title: 'Umsetzungsbegleitung',
+      text: 'LexIT begleitet Sie vom Rollen-Design bis zum ersten belastbaren Reporting.',
+    },
+    {
+      label: '04',
+      title: 'Verankerung',
+      text: 'Ihr Team verankert Governance in Entscheidung, Bericht und Alltag.',
+    },
+  ],
+  cta: {
+    title: 'Ordnen wir Ihre IT-Steuerung.',
+    text: 'LexIT bringt Rollen, Risikosteuerung und Reporting in eine Form, die Ihre Leitung nutzt.',
+    href: '/v2/kontakt',
+    label: 'Vertrauliches Erstgespräch',
+  },
+};
+---
+
+<V2BaseLayout
+  title={content.meta.title}
+  description={content.meta.description}
+  currentPath="/v2/leistungen/it-governance"
+>
+  <section class="v2s-section v2s-hero">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <p class="v2s-kicker">{content.hero.kicker}</p>
+        <h1 class="v2s-title">{content.hero.title}</h1>
+        <p class="v2s-lead">{content.hero.lead}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid v2s-grid-2">
+      {content.intro.map((block) => (
+        <article class="v2s-panel" data-v2-reveal>
+          <h2 class="v2s-headline">{block.title}</h2>
+          {block.paragraphs.map((paragraph) => (
+            <p class="v2s-copy">{paragraph}</p>
+          ))}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Leistungsbereiche</h2>
+
+        <div class="v2s-grid v2s-grid-2 v2s-mt-1">
+          {content.focusAreas.map((area) => (
+            <article class="v2s-card">
+              <h3>{area.title}</h3>
+              <p>{area.text}</p>
+              <p><strong>Ergebnis:</strong> {area.result}</p>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell v2s-grid v2s-grid-2">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">{content.itil.title}</h2>
+        {content.itil.paragraphs.map((paragraph) => (
+          <p class="v2s-copy">{paragraph}</p>
+        ))}
+
+        <ul class="v2s-list">
+          {content.itil.points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Zertifizierungen</h2>
+
+        <div class="v2s-grid v2s-mt-1">
+          {content.itil.badges.map((badge) => (
+            <figure class="v2s-card">
+              <img src={badge.src} alt={badge.alt} loading="lazy" decoding="async" class="v2s-img-fluid" />
+              <figcaption class="v2s-copy">{badge.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell">
+      <article class="v2s-panel" data-v2-reveal>
+        <h2 class="v2s-headline">Was Sie bekommen</h2>
+
+        <div class="v2s-grid v2s-grid-2 v2s-mt-1">
+          {content.deliverables.map((item) => (
+            <article class="v2s-card">
+              <p class="v2s-card-label">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="v2s-section">
+    <div class="v2s-shell">
+      <article class="v2s-hero-card" data-v2-reveal>
+        <h2 class="v2s-headline">{content.cta.title}</h2>
+        <p class="v2s-copy">{content.cta.text}</p>
+        <p class="v2s-copy v2s-action-row">
+          <a href={content.cta.href} class="v2s-btn v2s-btn-solid">{content.cta.label}</a>
+        </p>
+      </article>
+    </div>
+  </section>
+</V2BaseLayout>
