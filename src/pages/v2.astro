@@ -3,6 +3,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 type Surface = 'dark' | 'light';
 
+const heroVariants = {
+  clarity: {
+    kicker: 'Regulierte IT umsetzen',
+    title: 'Regulatorik braucht Klarheit.',
+    description:
+      'LexIT ordnet Zuständigkeiten, Nachweise und Entscheidungswege in NIS2, DORA, AI Act und DSGVO. So entsteht eine verlässliche Grundlage für sichere Entscheidungen.',
+  },
+  steering: {
+    kicker: 'Struktur für wirksame Steuerung',
+    title: 'Aus Vorgaben wird Steuerung.',
+    description:
+      'LexIT übersetzt regulatorische Anforderungen in klare Zuständigkeiten, belastbare Nachweise und ein Governance-Setup, das im Betrieb funktioniert.',
+  },
+  leadership: {
+    kicker: 'Führung unter Regulierungsdruck',
+    title: 'Führung macht Regulierung wirksam.',
+    description:
+      'LexIT verbindet Compliance, IT-Governance und Informationssicherheit zu einer belastbaren Grundlage für Entscheidungen, Umsetzung und nachhaltige Steuerungsfähigkeit.',
+  },
+} as const;
+
+// Switch this key to preview one of the approved hero directions.
+const activeHeroVariant = 'clarity' as const;
+
 const content = {
   meta: {
     title: 'LexIT Executive Governance | V2',
@@ -35,10 +59,7 @@ const content = {
     id: 'hero',
     logoSurface: 'dark' as Surface,
     logoAlt: 'LexIT Brandmarke',
-    kicker: 'Executive Governance for Regulated IT',
-    title: 'Regulatorik verlangt Führung.',
-    description:
-      'LexIT bringt Ordnung in NIS2, DORA, AI Act und DSGVO. Sie erhalten klare Verantwortung, belastbare Nachweise und ein Setup für Managemententscheidungen.',
+    ...heroVariants[activeHeroVariant],
     primaryCta: { href: '/v2/kontakt', label: 'Vertrauliches Erstgespräch' },
     secondaryCta: { href: '#leistungen', label: 'Leistungsfelder prüfen' },
     trustChips: [
@@ -53,30 +74,30 @@ const content = {
       id: 'problemfelder',
       kicker: 'Ausgangslage',
       title: 'Wo Führung unter Druck gerät',
-      text: 'Wenn Rollen, Nachweise und Prioritäten auseinanderlaufen, verliert das Management Zeit, Kontrolle und Entscheidungstempo.',
+      text: 'Wenn Rollen, Nachweise und Prioritäten nicht zusammenfinden, verliert das Management Zeit, Überblick und Entscheidungssicherheit.',
     },
     solutions: {
       id: 'leistungen',
       kicker: 'Leistungen',
       title: 'Drei Felder für belastbare Steuerung',
-      text: 'LexIT ordnet Regulierung, Verantwortung und Betrieb in ein steuerbares Modell.',
+      text: 'LexIT verbindet Regulierung, Verantwortung und Betrieb zu einem Modell, das im Alltag trägt.',
     },
     process: {
       id: 'ansatz',
       kicker: 'Vorgehen',
       title: 'So entsteht Steuerungsfähigkeit',
-      text: 'Wir schaffen Lagebild, Verantwortung und Nachweislogik, damit Geschäftsführung und IT-Leitung Entscheidungen tragen können.',
+      text: 'Wir schaffen ein klares Lagebild, definieren Verantwortung und ordnen Nachweise so, dass Entscheidungen sicher getroffen und umgesetzt werden können.',
     },
     stories: {
       id: 'ueber',
-      kicker: 'Profil',
-      title: 'Führungserfahrung mit Umsetzungstiefe',
-      text: 'Matthias König verbindet juristische Präzision mit Verantwortung für Compliance, IT und Informationssicherheit.',
+      kicker: 'Erfahrung',
+      title: 'Erfahrung, die im Betrieb trägt',
+      text: 'LexIT verbindet regulatorische Präzision mit praktischer Erfahrung in Compliance, IT und Informationssicherheit.',
     },
     faq: {
       id: 'faq',
       kicker: 'FAQ',
-      title: 'Fragen vor dem Mandat',
+      title: 'Fragen vor der Zusammenarbeit',
       text: 'Kurz zu Ablauf, Umfang und Zusammenarbeit.',
     },
   },
@@ -84,20 +105,20 @@ const content = {
     {
       title: 'Vorgaben treffen auf Betrieb',
       tag: 'Komplexität',
-      text: 'NIS2, DORA, AI Act und DSGVO greifen zugleich in Organisation, IT und Berichtspflichten ein.',
-      impact: 'Die Leitung vertagt Entscheidungen, Fachbereiche arbeiten in getrennten Spuren.',
+      text: 'NIS2, DORA, AI Act und DSGVO wirken gleichzeitig auf Organisation, IT und Berichtspflichten.',
+      impact: 'Entscheidungen werden vertagt, Bereiche arbeiten nebeneinander statt zusammen.',
     },
     {
       title: 'Nachweise bleiben fragmentiert',
       tag: 'Audit-Druck',
-      text: 'Teams sammeln Dokumente, doch oft fehlt eine Struktur, die Verantwortung, Fristen und Evidenz zusammenführt.',
+      text: 'Dokumente entstehen, doch oft fehlt eine Struktur, die Verantwortung, Fristen und Evidenz sauber zusammenführt.',
       impact: 'IT, Legal und Compliance verlieren Zeit in Abstimmung, Prüfungen und Rückfragen.',
     },
     {
       title: 'Kritische Entscheidungen haben keinen Pfad',
       tag: 'Verantwortung',
-      text: 'Wenn Rollen und Eskalationspfade fehlen, bleibt offen, wer entscheidet, eskaliert und liefert.',
-      impact: 'Maßnahmen verlieren Priorität und Wirkung.',
+      text: 'Fehlen Rollen und Eskalationswege, bleibt unklar, wer entscheidet, priorisiert und liefert.',
+      impact: 'Maßnahmen verlieren Tempo und Wirkung.',
     },
   ],
   solutionCards: [
@@ -105,7 +126,7 @@ const content = {
       title: 'IT-Compliance',
       href: '/v2/leistungen/it-compliance',
       description:
-        'LexIT ordnet Pflichten, setzt Prioritäten und überführt Vorgaben in einen belastbaren Arbeitsplan.',
+        'LexIT ordnet Pflichten, setzt Prioritäten und übersetzt Vorgaben in einen belastbaren Umsetzungsplan.',
       bullets: [
         'NIS2, DORA, AI Act und DSGVO priorisieren',
         'Pflichten in bestehende Abläufe einbauen',
@@ -117,7 +138,7 @@ const content = {
       title: 'IT-Governance',
       href: '/v2/leistungen/it-governance',
       description:
-        'LexIT legt fest, wer entscheidet, wer Risiken trägt und welche Kennzahlen auf Leitungsebene zählen.',
+        'LexIT klärt Entscheidungen, Risiken und Kennzahlen so, dass Steuerung auf Leitungsebene möglich wird.',
       bullets: [
         'Rollen und Eskalationswege festlegen',
         'Risiken mit Managemententscheidungen verknüpfen',
@@ -129,7 +150,7 @@ const content = {
       title: 'Produktdesign für IT-Services',
       href: '/v2/leistungen/produktdesign',
       description:
-        'LexIT schärft IT-Services, bis Scope, SLA, Preis und Vertragslogik sauber greifen.',
+        'LexIT schärft IT-Services, bis Leistungsumfang, SLA, Preis und Vertragslogik sauber zusammenpassen.',
       bullets: [
         'Nutzen und Zielbild für Kunden schärfen',
         'Servicearchitektur mit SLA verbinden',
@@ -142,70 +163,70 @@ const content = {
     {
       step: '01',
       title: 'Lagebild und Priorisierung',
-      text: 'Wir prüfen Anforderungen, Risiken, Rollen und Reifegrad.',
+      text: 'Wir ordnen Anforderungen, Risiken, Rollen und Reifegrad.',
     },
     {
       step: '02',
       title: 'Governance-Design',
-      text: 'Wir legen Entscheidungen, Schnittstellen und Verantwortlichkeiten fest.',
+      text: 'Wir definieren Entscheidungen, Schnittstellen und Verantwortlichkeiten.',
     },
     {
       step: '03',
       title: 'Umsetzung im Betrieb',
-      text: 'Wir bauen Maßnahmen, Routinen und Nachweise in den Betrieb ein.',
+      text: 'Wir verankern Maßnahmen, Routinen und Nachweise im Betrieb.',
     },
     {
       step: '04',
       title: 'Stabilisierung und Weiterentwicklung',
-      text: 'Wir prüfen Wirkung, schließen Lücken und schärfen das Setup nach.',
+      text: 'Wir prüfen Wirkung, schließen Lücken und entwickeln das Setup gezielt weiter.',
     },
   ],
   featureStories: [
     {
-      title: 'Profil',
+      title: 'Perspektive',
       lead:
-        'Matthias König verbindet juristische Ausbildung mit Führungsverantwortung in IT, Compliance und Informationssicherheit.',
+        'Bei LexIT greifen Recht, Compliance und IT zusammen. So entstehen Lösungen, die regulatorisch sauber und operativ tragfähig sind.',
       bullets: [
-        'Manager Legal & Compliance in internationalem IT-Umfeld',
-        'Interim-CISO mit Verantwortung für Informationssicherheit',
-        'ESG-Programme und ISO-Zertifizierungen aufgebaut',
+        'Erfahrung an den Schnittstellen von Legal, Compliance und IT',
+        'Verständnis für Governance, Informationssicherheit und Organisationspraxis',
+        'Fokus auf Strukturen, die im Alltag belastbar bleiben',
       ],
       frame: {
-        eyebrow: 'Leadership Lens',
-        headline: 'Legal x Compliance x IT',
-        caption: 'Recht, Compliance und IT greifen in einer Verantwortung zusammen.',
+        eyebrow: 'Integrierte Sicht',
+        headline: 'Recht x Compliance x IT',
+        caption: 'Regulatorik, Verantwortung und Betrieb werden gemeinsam gedacht.',
       },
     },
     {
-      title: 'Erfahrung',
+      title: 'Praxis',
       lead:
-        'Er kennt Strategie, Aufbau und Umsetzung aus der Konzernpraxis.',
+        'LexIT kennt Aufbau, Steuerung und Umsetzung aus anspruchsvollen Unternehmensumfeldern.',
       bullets: [
-        '10+ Jahre Konzern: Legal, Compliance, IT-Governance, CISO',
-        'ISO 27001, ISO 9001, ISO 14001: Implementierung und Audits',
+        'Erfahrung in Konzernstrukturen und regulierten Kontexten',
+        'ISO 27001, ISO 9001 und ISO 14001: Aufbau, Implementierung und Auditbegleitung',
         'Service Level Management und ITIL-Implementierung',
       ],
       frame: {
-        eyebrow: 'Execution Snapshot',
-        headline: 'Audit-Ready Operations',
-        caption: 'Audits, Rollen und Nachweise greifen im Betrieb ineinander.',
+        eyebrow: 'Umsetzung',
+        headline: 'Prüfungsfeste Abläufe',
+        caption: 'Nachweise, Rollen und Routinen greifen im Betrieb ineinander.',
       },
     },
     {
-      title: 'Qualifikationen & Auszeichnungen',
+      title: 'Qualifikation & Anerkennung',
       lead:
-        'Seine Ausbildung und Auszeichnungen geben Geschäftsführung und IT-Leitung eine belastbare Grundlage für Entscheidungen.',
+        'Fachliche Qualifikation und anerkannte Auszeichnungen schaffen eine belastbare Grundlage für Zusammenarbeit auf Leitungsebene.',
       bullets: [
-        'Mag. iur. und M.A. IT-Law and Management',
+        'Juristische und managementbezogene Ausbildung mit Schwerpunkt IT-Recht',
         'ITIL v3 Expert und ITIL 4 Managing Professional',
         'Certified Compliance Officer (Austrian Standards)',
-        'Dozent an Donau-Universität Krems und FH Burgenland',
+        'Lehrtätigkeit an Donau-Universität Krems und FH Burgenland',
         'Legal 500 GC Powerlist: Austria 2022 und 2024',
       ],
       frame: {
-        eyebrow: 'Proof Layer',
-        headline: 'Board-Level Credibility',
-        caption: 'Fachliche Tiefe trifft auf Führungserfahrung.',
+        eyebrow: 'Qualität',
+        headline: 'Belastbare Grundlage',
+        caption: 'Fachliche Tiefe und Praxiserfahrung schaffen Vertrauen.',
       },
     },
   ],
@@ -218,12 +239,12 @@ const content = {
     {
       question: 'Wie startet ein gemeinsames Projekt?',
       answer:
-        'Wir starten mit einem Lagebild. Danach priorisieren wir Themen, legen Verantwortung fest und bestimmen den ersten Umsetzungsblock.',
+        'Zum Einstieg schaffen wir ein klares Lagebild. Danach priorisieren wir Themen, definieren Verantwortung und legen den ersten Umsetzungsblock fest.',
     },
     {
-      question: 'Werden nur Konzernstrukturen unterstützt?',
+      question: 'Arbeitet LexIT nur für Konzernstrukturen?',
       answer:
-        'Nein. LexIT arbeitet mit mittelständischen Unternehmen und mit Konzernstrukturen.',
+        'Nein. LexIT unterstützt mittelständische Unternehmen ebenso wie Konzerne.',
     },
     {
       question: 'In welchen Regionen arbeitet LexIT?',
@@ -235,7 +256,7 @@ const content = {
     id: 'kontakt',
     kicker: 'Nächster Schritt',
     title: 'Sie brauchen Steuerung statt Dauerreaktion.',
-    text: 'LexIT bringt Erfahrung aus ISO-Zertifizierungen, ESG und IT-Governance in Ihr Vorhaben. Sie gewinnen klare Verantwortung, belastbare Nachweise und ein Management-Setup für Entscheidungen.',
+    text: 'LexIT bringt Erfahrung aus ISO-Zertifizierungen, ESG und IT-Governance in komplexe Vorhaben ein. Sie gewinnen klare Verantwortung, belastbare Nachweise und eine verlässliche Grundlage für Entscheidungen.',
     note:
       'Für Geschäftsführung, IT-Leitung und Compliance mit hohem Regulierungsdruck.',
     primaryCta: { href: '/v2/kontakt', label: 'Vertrauliches Gespräch anfragen' },
@@ -339,19 +360,19 @@ const heroWords = content.hero.title.split(' ');
 
         <aside class="v2-hero-visual" aria-hidden="true" data-reveal>
           <div class="v2-logo-fluid">
-            <div class="v2-logo-orb">
-              <img
-                src={heroLogo}
-                alt={content.hero.logoAlt}
-                width="1640"
-                height="701"
-                class="v2-hero-logo"
-                loading="eager"
-                decoding="async"
-              />
-              <span class="v2-orbit v2-orbit-a"></span>
-              <span class="v2-orbit v2-orbit-b"></span>
-              <span class="v2-orbit v2-orbit-c"></span>
+            <div class="v2-logo-stage">
+              
+              <div class="v2-logo-mark">
+                <img
+                  src={heroLogo}
+                  alt={content.hero.logoAlt}
+                  width="1640"
+                  height="701"
+                  class="v2-hero-logo"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </aside>
@@ -390,7 +411,7 @@ const heroWords = content.hero.title.split(' ');
 
         <div class="v2-grid v2-grid-3">
           {content.solutionCards.map((card) => (
-            <article class="v2-card v2-solution-card" data-reveal>
+            <a href={card.href} class="v2-card v2-solution-card" data-reveal>
               <h3>{card.title}</h3>
               <p>{card.description}</p>
               <ul>
@@ -398,10 +419,10 @@ const heroWords = content.hero.title.split(' ');
                   <li>{bullet}</li>
                 ))}
               </ul>
-              <a href={card.href} class="v2-inline-link">
+              <span class="v2-inline-link">
                 {card.linkLabel}
-              </a>
-            </article>
+              </span>
+            </a>
           ))}
         </div>
       </div>
@@ -1404,34 +1425,26 @@ const heroWords = content.hero.title.split(' ');
     display: grid;
     place-items: center;
     width: 100%;
+    margin-bottom: clamp(0.5rem, 2vw, 1.4rem);
   }
 
   .v2-logo-fluid {
     --hero-scroll-bob: 0px;
     display: grid;
     place-items: center;
-    width: min(100%, 32rem);
+    width: min(100%, 42rem);
     margin-inline: auto;
     transform: translate3d(0, var(--hero-scroll-bob), 0);
     will-change: transform;
   }
 
-  .v2-logo-orb {
+  .v2-logo-stage {
     position: relative;
-    width: min(100%, 32rem);
-    aspect-ratio: 1;
-    border-radius: 28%;
+    width: min(100%, 42rem);
+    aspect-ratio: 1.08;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(157, 181, 214, 0.34);
-    background:
-      radial-gradient(circle at 30% 18%, rgba(224, 122, 47, 0.16), transparent 50%),
-      radial-gradient(circle at 72% 72%, rgba(31, 58, 95, 0.34), transparent 64%),
-      rgba(13, 24, 41, 0.86);
-    box-shadow:
-      0 26px 48px rgba(2, 4, 10, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.09),
-      0 0 calc(70px * var(--motion-glow)) rgba(31, 58, 95, 0.25);
+    isolation: isolate;
     animation: v2-logo-drift calc(12s / var(--motion-rate)) ease-in-out infinite;
     transition:
       opacity calc(380ms / var(--motion-rate)) ease,
@@ -1439,47 +1452,121 @@ const heroWords = content.hero.title.split(' ');
     will-change: transform;
   }
 
-  body.v2-hero-collapsed .v2-logo-orb {
+  .v2-logo-stage::before,
+  .v2-logo-stage::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(58px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .v2-logo-stage::before {
+    inset: 6% 6% 28%;
+    background: radial-gradient(circle, rgba(31, 58, 95, 0.46) 0%, rgba(31, 58, 95, 0.14) 34%, rgba(31, 58, 95, 0) 76%);
+  }
+
+  .v2-logo-stage::after {
+    inset: 34% 4% 2%;
+    background: radial-gradient(circle, rgba(224, 122, 47, 0.28) 0%, rgba(224, 122, 47, 0.12) 26%, rgba(224, 122, 47, 0) 74%);
+  }
+
+  body.v2-hero-collapsed .v2-logo-stage {
     opacity: 0.16;
     transform: translateY(calc(-44px * var(--motion-amp))) scale(0.84);
   }
 
+  .v2-logo-mark {
+    position: relative;
+    z-index: 3;
+    width: min(94%, 38rem);
+    padding: clamp(1.8rem, 5vw, 2.5rem) clamp(1.8rem, 5.8vw, 2.8rem);
+    border-radius: 2.4rem;
+    border: 0px solid rgba(173, 195, 226, 0.34);
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.12), transparent 34%),
+      radial-gradient(circle at 82% 78%, rgba(224, 122, 47, 0.12), transparent 30%),
+      linear-gradient(180deg, rgba(21, 37, 61, 0.88) 0%, rgba(10, 18, 31, 0.96) 100%);
+    backdrop-filter: blur(24px) saturate(155%);
+    -webkit-backdrop-filter: blur(24px) saturate(155%);
+    box-shadow:
+      0 28px 68px rgba(2, 4, 10, 0.58),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -24px 40px rgba(4, 9, 18, 0.26),
+      0 0 calc(76px * var(--motion-glow)) rgba(31, 58, 95, 0.28);
+    display: grid;
+    place-items: center;
+  }
+
+  .v2-logo-mark::before,
+  .v2-logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .v2-logo-mark::before {
+    inset: 1px;
+    border-radius: calc(2.4rem - 1px);
+    background:
+      linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 24%, transparent 78%, rgba(255, 255, 255, 0.04));
+    opacity: 0.92;
+  }
+
+  .v2-logo-mark::after {
+    inset: -10%;
+    border-radius: 45%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 66%);
+    filter: blur(26px);
+    opacity: 0.55;
+    z-index: -1;
+  }
+
   .v2-hero-logo {
-    width: min(84%, 24rem);
+    width: min(100%, 24.5rem);
     height: auto;
-    filter: drop-shadow(0 10px 22px rgba(2, 4, 8, 0.45));
+    filter:
+      drop-shadow(0 10px 22px rgba(2, 4, 8, 0.45))
+      drop-shadow(0 0 22px rgba(255, 255, 255, 0.06));
     animation: v2-hero-float calc(7s / var(--motion-rate)) ease-in-out infinite;
     will-change: transform;
     z-index: 2;
   }
 
-  .v2-orbit {
+  .v2-logo-shape {
     position: absolute;
-    border: 1px solid rgba(172, 195, 228, 0.28);
-    border-radius: 50%;
+    border-radius: 999px;
+    border: 1px solid rgba(208, 221, 241, 0.16);
+    background:
+      linear-gradient(120deg, var(--logo-shape-color) 0%, rgba(255, 255, 255, 0.08) 54%, rgba(255, 255, 255, 0) 100%),
+      radial-gradient(circle at 26% 50%, rgba(255, 255, 255, 0.22), transparent 66%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+      0 18px 34px rgba(2, 4, 10, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 0 40px rgba(255, 255, 255, 0.08);
+    transform: translate3d(0, 0, 0) rotate(var(--logo-shape-rotate));
+    animation:
+      v2-logo-shape-drift var(--logo-shape-duration) ease-in-out infinite,
+      v2-geometric-shape-shimmer calc(5.8s / var(--motion-rate)) linear infinite;
     pointer-events: none;
+    will-change: transform, opacity;
   }
 
-  .v2-orbit-a {
-    width: 108%;
-    height: 108%;
-    animation: v2-spin calc(26s / var(--motion-rate)) linear infinite;
+  .v2-logo-shape::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 22% 50%, rgba(255, 255, 255, 0.12), transparent 58%);
+    opacity: 0.88;
   }
 
-  .v2-orbit-b {
-    width: 82%;
-    height: 82%;
-    transform: rotate(28deg);
-    border-style: dashed;
-    animation: v2-spin-reverse calc(18s / var(--motion-rate)) linear infinite;
-  }
-
-  .v2-orbit-c {
-    width: 126%;
-    height: 126%;
-    border-color: rgba(224, 122, 47, 0.32);
-    animation: v2-spin calc(36s / var(--motion-rate)) linear infinite;
-  }
+ 
 
   .v2-section {
     padding-block: clamp(3.5rem, 9vw, 6.7rem);
@@ -1487,7 +1574,6 @@ const heroWords = content.hero.title.split(' ');
 
   .v2-section-tint {
     background: linear-gradient(180deg, rgba(19, 34, 58, 0.26) 0%, rgba(19, 34, 58, 0.08) 100%);
-    border-block: 1px solid rgba(142, 163, 197, 0.24);
   }
 
   .v2-section-head {
@@ -1527,6 +1613,8 @@ const heroWords = content.hero.title.split(' ');
     --card-orbit-angle: 0deg;
     --card-hover-sweep: 0deg;
     position: relative;
+    color: inherit;
+    text-decoration: none;
     padding: clamp(1.1rem, 2.3vw, 1.45rem);
     border-radius: var(--radius-card);
     border: 1px solid rgba(182, 203, 232, 0.2);
@@ -1639,6 +1727,7 @@ const heroWords = content.hero.title.split(' ');
   }
 
   .v2-card:hover,
+  .v2-card:focus-visible,
   .v2-card:focus-within {
     transform: translateY(calc(-8px * var(--motion-lift)));
     border-color: rgba(239, 154, 88, 0.54);
@@ -1649,6 +1738,7 @@ const heroWords = content.hero.title.split(' ');
   }
 
   .v2-card:hover::after,
+  .v2-card:focus-visible::after,
   .v2-card:focus-within::after {
     opacity: 1;
     filter:
@@ -1732,6 +1822,12 @@ const heroWords = content.hero.title.split(' ');
 
   .v2-inline-link:hover,
   .v2-inline-link:focus-visible {
+    color: #ffe9d8;
+  }
+
+  .v2-card:hover .v2-inline-link,
+  .v2-card:focus-visible .v2-inline-link,
+  .v2-card:focus-within .v2-inline-link {
     color: #ffe9d8;
   }
 
@@ -2087,6 +2183,18 @@ const heroWords = content.hero.title.split(' ');
     }
   }
 
+  @keyframes v2-logo-shape-drift {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(var(--logo-shape-rotate));
+    }
+    50% {
+      transform:
+        translate3d(var(--logo-shift-x, var(--logo-shape-shift-x, 0)), var(--logo-shift-y, var(--logo-shape-shift-y, 0)), 0)
+        rotate(calc(var(--logo-shape-rotate) + var(--logo-shape-tilt, 0deg)));
+    }
+  }
+
   @keyframes v2-hero-float {
     0%,
     100% {
@@ -2104,24 +2212,6 @@ const heroWords = content.hero.title.split(' ');
     48%,
     100% {
       transform: translateX(125%);
-    }
-  }
-
-  @keyframes v2-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes v2-spin-reverse {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
     }
   }
 
@@ -2150,8 +2240,13 @@ const heroWords = content.hero.title.split(' ');
   }
 
   @media (max-width: 900px) {
-    .v2-logo-orb {
+    .v2-logo-stage {
       width: min(100%, 22rem);
+    }
+
+    .v2-logo-mark {
+      width: min(86%, 18.5rem);
+      border-radius: 1.6rem;
     }
 
     .v2-nav-links {
@@ -2219,7 +2314,7 @@ const heroWords = content.hero.title.split(' ');
       filter: none;
     }
 
-    body.v2-hero-collapsed .v2-logo-orb {
+    body.v2-hero-collapsed .v2-logo-stage {
       transform: none;
       opacity: 1;
     }
